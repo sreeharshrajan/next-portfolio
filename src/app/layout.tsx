@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased dark">
+    <html lang="en" className="h-full antialiased dark overflow-hidden">
       <body
         className={`${inter.className} flex h-full bg-zinc-50 dark:bg-indigo-950`}
       >
