@@ -20,9 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased dark overflow-hidden">
+    <html lang="en" className="antialiased overflow-hidden">
       <body
-        className={`${inter.className} flex h-full bg-zinc-50 dark:bg-indigo-950`}
+        className={`${inter.className} bg-zinc-50 dark:bg-indigo-950`}
       >
         <Navbar />
         {children}

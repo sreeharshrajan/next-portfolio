@@ -15,7 +15,7 @@ function Hero() {
       <div className="relative z-10 flex flex-col justify-center items-center h-screen">
         <div className="max-w-xl mx-auto px-4">
           <div className="max-w-2xl text-center mx-auto">
-            <p className="inline-block text-sm font-medium bg-clip-text bg-gradient-to-l from-blue-600 to-violet-500 text-transparent dark:from-blue-400 dark:to-violet-400">
+            <p className="inline-block text-xl font-bold bg-clip-text bg-gradient-to-l from-blue-600 to-violet-500 text-transparent dark:from-blue-400 dark:to-violet-400">
               Hi, I am Sreeharsh
             </p>
 
