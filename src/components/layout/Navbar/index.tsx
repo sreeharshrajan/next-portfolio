@@ -10,7 +10,7 @@ export default function CTA() {
 
   return (
     <motion.div
-      variants={fadeIn("tween", 0.5, 1)}
+      variants={fadeIn("down","tween", 0.5, 1)}
       whileInView={`show`}
       initial={`hidden`}
       className="fixed z-50 inset-x-0 top-5 mx-5 flex max-w-screen-lg items-center justify-between space-y-3 rounded-xl border-black bg-white px-5 pb-4 pt-0 drop-shadow-2xl transition-all duration-150 ease-in-out dark:border  dark:bg-zinc-950 dark:text-white lg:flex-row lg:space-y-0 lg:pt-2 xl:mx-auto shadow-xl justify-between"
