@@ -2,17 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { fadeIn } from "@utils/animate";
 
 export default function CTA() {
-  const [playAnimation, setPlayAnimation] = useState(true);
 
   return (
-    <motion.div
-      variants={fadeIn("down","tween", 0.5, 1)}
-      whileInView={`show`}
-      initial={`hidden`}
+    <div
       className="fixed z-50 inset-x-0 top-5 mx-5 flex max-w-screen-lg items-center justify-between space-y-3 rounded-xl border-black bg-white px-5 pb-4 pt-0 drop-shadow-2xl transition-all duration-150 ease-in-out dark:border  dark:bg-zinc-950 dark:text-white lg:flex-row lg:space-y-0 lg:pt-2 xl:mx-auto shadow-xl justify-between"
     >
       <div className="flex">
@@ -122,6 +116,6 @@ export default function CTA() {
           <path d="M7 17l9.2-9.2M17 17V7H7" />
         </svg>
       </Link>
-    </motion.div>
+    </div>
   );
 }

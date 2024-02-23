@@ -30,7 +30,7 @@ const Hero = () => {
 
             <div className="mt-5 max-w-2xl">
               <motion.h1
-                variants={fadeIn("down","tween", 1, 1)}
+                variants={fadeIn("down", "tween", 1, 1)}
                 whileInView={`show`}
                 initial={`hidden`}
                 className="block font-semibold text-gray-800 text-4xl md:text-5xl lg:text-6xl dark:text-gray-200"
