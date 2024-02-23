@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Sreeharsh",
+    "title": "Sreeharsh - Full Stack Developer",
+    "description": "Empowering Your Ideas Through Design and Development Expertise, focuses on accessible, accessible, responsive and animated web applications with optimized performance.",
+    "timeZone": "Asia/Calcutta",
+    "locale": "en-IN"
+  },
+  "personal": {
+    "name": "Sreeharsh",
+    "surname": "Rajan",
+    "role": "Full Stack Developer",
+    "experience": 3.5,
+    "email": "sreeharshkrajan@gmail.com",
+    "phone": "+91847834144",
+    "city": "Bengaluru",
+    "state": "KA",
+    "country": "IN`",
+    "username": "@sreeharshrajan",
+    "resumeURL": "https://www.sreeharsh.tech/Sreeharsh_Resume.pdf"
+  },
+  "social": {
+    "twitter": "https://twitter.com/SreeharshRajan",
+    "instagram": "https://www.instagram.com/sreeharshrajan",
+    "linkedin": "https://www.linkedin.com/in/sreeharshk/",
+    "github": "https://github.com/sreeharshrajan",
+    "codepen": "https://codepen.io/sreeharshrajan",
+    "medium": "https://medium.com/@sreeharshrajan"
+  },
+  "content": {
+    "verse": "“Good is not a thing you are. It’s a thing you do.”"
+  }
+}

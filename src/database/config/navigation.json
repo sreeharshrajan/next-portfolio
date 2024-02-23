@@ -1,0 +1,20 @@
+{
+  "works": {
+    "isActive": true,
+    "showOnNavigation": true,
+    "showOnFooter": true,
+    "title": "Works",
+    "description": "Here's a curated selection showcasing my expertise and the achieved results.",
+    "image": "",
+    "link": "#works"
+  },
+  "skills": {
+    "isActive": true,
+    "showOnNavigation": true,
+    "showOnFooter": true,
+    "title": "Skills",
+    "description": "Check out the things I'm good at, from building websites to design and more.",
+    "image": "",
+    "link": "#skills"
+  }
+}

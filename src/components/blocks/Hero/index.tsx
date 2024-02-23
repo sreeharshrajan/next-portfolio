@@ -1,9 +1,61 @@
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import React from "react";
+import { annotate } from "rough-notation";
+import { motion } from "framer-motion";
+import { fadeIn } from "@utils/animate";
 
-function Hero() {
+import '@/assets/styles/globals.css'
+
+const Hero = () => {
+  const [playAnimation, setPlayAnimation] = useState(true);
+  useEffect(() => {
+    const top = document.getElementById("top");
+
+    const e = document.querySelector("#hero-text");
+    if (e) {
+      setTimeout(() => {
+        annotate(e, {
+          type: "highlight",
+          color: "#ffda79",
+          multiline: true,
+        }).show();
+      }, 2000);
+    }
+  }, []);
   return (
     <div className="relative overflow-hidden min-h-screen min-w-screen">
+      <motion.div
+        variants={fadeIn("down", "tween", 0.5, 1)}
+        whileInView={`show`}
+        initial={`hidden`}
+        className="flex items-center max-sm:px-2 justify-center"
+      >
+        <h1 id="top" className="color_box">
+          Over 3 million ready-to-work creatives in our community!
+        </h1>
+      </motion.div>
+      <motion.div
+        variants={fadeIn("tween", 1, 1)}
+        whileInView={`show`}
+        initial={`hidden`}
+        className=""
+      >
+        <h1 className="hero-text w-1/2">
+          Hire the <span id="hero-text">world’s top</span> creative talent.
+        </h1>
+      </motion.div>
+      <motion.div
+        variants={fadeIn("up", "tween", 1.5, 0.7)}
+        whileInView={`show`}
+        initial={`hidden`}
+        className="flex justify-center max-sm:px-12"
+      >
+        <h2 className="text-[20px] max-sm:text-[15px] text-[#0d0c22] text-center font-poppins rounded-full">
+          Connect with a community of millions of top-rated designers & agencies
+          around the world.
+        </h2>
+      </motion.div>
       <div
         aria-hidden="true"
         className="flex absolute -top-96  start-1/2 transform -translate-x-1/2"
@@ -35,7 +87,8 @@ function Hero() {
             <div className="mt-8 gap-3 flex justify-center">
               <a
                 className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                href="/Sreeharsh_Resume.pdf" download
+                href="/assets/files/Sreeharsh_Resume.pdf"
+                download
               >
                 Download Resume
                 <svg
@@ -59,6 +112,6 @@ function Hero() {
       </div>
     </div>
   );
-}
+};
 
 export default Hero;

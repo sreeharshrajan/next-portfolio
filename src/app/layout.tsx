@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "@/components/layout/Navbar";
-
 import { Analytics } from "@vercel/analytics/react";
 
-import "./globals.css";
+import Navbar from "@components/layout/Navbar";
+
+import "@/assets/styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="antialiased overflow-hidden">
-      <body
-        className={`${inter.className} bg-zinc-50 dark:bg-indigo-950`}
-      >
+      <body className={`${inter.className} bg-zinc-50 dark:bg-indigo-950`}>
         <Navbar />
         {children}
         <Analytics />

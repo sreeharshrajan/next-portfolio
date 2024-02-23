@@ -1,0 +1,15 @@
+[
+  {
+    "title": "UAE Year of",
+    "image": "/reference/uae-yearof.jpg",
+    "description": "Welcome to the Year of Sustainability. Sustainability is about protecting our land, resources and one another today, for a better tomorrow.",
+    "url": "https://uaeyearof.ae/",
+    "date": "2023",
+    "service": "Frontend Development",
+    "color": {
+      "h": "30",
+      "s": "100%",
+      "l": "90%"
+    }
+  }
+]

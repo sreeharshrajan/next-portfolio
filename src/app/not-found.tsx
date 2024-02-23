@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import * as React from "react";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export default function NotFound() {
           <h1 className="mt-4 text-4xl md:text-6xl"> Page Under Construction</h1>
           {/* <h1 className="mt-4 text-4xl md:text-6xl"> Page Not Found</h1> */}
           <p className="mt-4 text-sm text-gray-700 dark:text-gray-400">
-            <a
+            <Link
               href="/"
               className="cursor-newtab animated-underline custom-link inline-flex items-center font-medium focus-visible:ring-primary-500 focus:outline-none focus-visible:rounded focus-visible:ring focus-visible:ring-offset-2 border-dark border-b border-dotted hover:border-black/0 group gap-[0.25em]"
             >
@@ -39,7 +40,7 @@ export default function NotFound() {
                   className="origin-left transition-all duration-200 opacity-0 motion-safe:-translate-x-1 group-hover:translate-x-0 group-hover:opacity-100"
                 ></path>
               </svg>
-            </a>
+            </Link>
           </p>
         </div>
       </section>

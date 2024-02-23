@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Pages() {
+function Projects() {
   return (
     <div>
-      Pages
+      Projects
     </div>
   );
 }
 
-export default Pages;
+export default Projects;
