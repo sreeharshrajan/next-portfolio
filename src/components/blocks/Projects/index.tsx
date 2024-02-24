@@ -8,7 +8,7 @@ import Blobs from "@/components/ui/Blobs";
 import Companies from "@/database/experience.json";
 
 function Projects() {
-  const container = useRef();
+  const container = useRef<HTMLDivElement>(null);
 
   return (
     <section className={styles.section} id={"experience"} ref={container}>

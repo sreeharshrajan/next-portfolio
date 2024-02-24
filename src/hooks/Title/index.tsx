@@ -1,26 +1,31 @@
-"use client";
-
-import React, { useRef } from "react";
+import React, { useRef, ReactNode } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import styles from "./title.module.scss";
 
-export default function Title({ heading, color, children, className }) {
-  const textRef = useRef(null);
+interface TitleProps {
+  heading?: string | React.ElementType;
+  color?: "white" | "black";
+  children: ReactNode;
+  className?: string;
+}
+
+const Title: React.FC<TitleProps> = ({
+  heading: HeadingElement = "h2",
+  color = "black",
+  children,
+  className = "",
+}) => {
+  const textRef = useRef<HTMLHeadingElement>(null);
 
   useGSAP(
     () => {
       gsap.registerPlugin(ScrollTrigger);
 
       if (textRef.current) {
-        textRef.current.style.opacity = 1;
-
-        // const splitText = new SplitText(textRef.current, {
-        //   type: "words, chars",
-        //   wordsClass: `${styles.splitLine}`,
-        // });
+        textRef.current.style.opacity = "1";
 
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -37,7 +42,9 @@ export default function Title({ heading, color, children, className }) {
           ease: "power1.out",
           stagger: 0.01,
           onComplete: () => {
-            textRef.current.classList.add(`animated`);
+            if (textRef.current) {
+              textRef.current.classList.add("animated");
+            }
           },
         });
       }
@@ -45,13 +52,17 @@ export default function Title({ heading, color, children, className }) {
     { scope: textRef }
   );
 
-  const HeadingElement = heading ? heading : "h2";
   const colorClass =
     color === "white" ? styles.white : color === "black" ? styles.black : "";
 
   return (
-    <HeadingElement className={`${styles.title} ${colorClass}`} ref={textRef}>
+    <HeadingElement
+      className={`${styles.title} ${colorClass} ${className}`}
+      ref={textRef}
+    >
       {children}
     </HeadingElement>
   );
-}
+};
+
+export default Title;

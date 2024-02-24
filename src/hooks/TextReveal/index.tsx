@@ -18,7 +18,7 @@ export default function TextReveal({ className, children }: TextRevealProps) {
       gsap.registerPlugin(ScrollTrigger);
 
       if (textRef.current) {
-        textRef.current.style.opacity = 1;
+        textRef.current.style.opacity = "1";
 
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -35,7 +35,10 @@ export default function TextReveal({ className, children }: TextRevealProps) {
           ease: "power1.out",
           stagger: 0.01,
           onComplete: () => {
-            textRef.current.classList.add(`animated`);
+            // Check if textRef.current exists before accessing its properties
+            if (textRef.current) {
+              textRef.current.classList.add(`animated`);
+            }
           },
         });
       }

@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 
@@ -11,7 +9,7 @@ export default function LenisScroller() {
       wheelMultiplier: 1.3,
     });
 
-    function raf(time) {
+    function raf(time: number) {
       lenisScroll.raf(time);
       requestAnimationFrame(raf);
     }

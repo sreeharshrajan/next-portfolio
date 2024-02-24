@@ -1,15 +1,22 @@
-import React, { useRef, cloneElement } from "react";
+import React, { useRef, cloneElement, ReactElement } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+interface FadeInProps {
+  children: ReactElement<any, any>;
+  duration?: number;
+  y?: number;
+  autoAlpha?: number;
+}
 
 export default function FadeIn({
   children,
   duration = 1,
   y = 10,
   autoAlpha = 0,
-}) {
-  const container = useRef(null);
+}: FadeInProps) {
+  const container = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);

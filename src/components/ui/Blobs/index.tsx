@@ -1,6 +1,12 @@
+import React from "react";
 import styles from "./styles.module.scss";
 
-export default function Blobs({ classVariable, type }) {
+interface BlobsProps {
+  classVariable?: string;
+  type?: string;
+}
+
+const Blobs: React.FC<BlobsProps> = ({ classVariable = "", type = "v1" }) => {
   const blobType = type ? type : "v1";
   return (
     <div
@@ -8,3 +14,5 @@ export default function Blobs({ classVariable, type }) {
     ></div>
   );
 }
+
+export default Blobs;

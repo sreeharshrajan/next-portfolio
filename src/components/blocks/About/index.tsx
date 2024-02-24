@@ -1,27 +1,22 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import styles from "./about.module.scss";
-
 import TextReveal from "@/hooks/TextReveal";
 import Blobs from "@/components/ui/Blobs";
 
 function About() {
-  const galleryContainer = useRef();
-  const bg = useRef();
-  const container = useRef();
-  const { contextSafe } = useGSAP({ scope: container });
+  const galleryContainer = useRef<HTMLDivElement>(null);
+  const bg = useRef<HTMLDivElement>(null);
+  const container = useRef<HTMLDivElement>(null);
 
-  useGSAP(
-    () => {
-      gsap.registerPlugin(ScrollTrigger);
-      const gallery = galleryContainer.current;
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
 
-      // BG Animation
+    if (bg.current && container.current) {
       gsap.to(bg.current, {
         scrollTrigger: {
           trigger: container.current,
@@ -31,25 +26,17 @@ function About() {
         },
         clipPath: "inset(0px 0px round 3rem 3rem 0rem 0rem)",
       });
-    },
-    { scope: galleryContainer }
-  );
-
-  const scrollToSection = contextSafe((e) => {
-    gsap.to(window, {
-      duration: 1,
-      scrollTo: e,
-    });
-  });
+    }
+  }, []);
 
   return (
-    <section className={styles.section} id={"works"} ref={container}>
+    <section className={styles.section} id="works" ref={container}>
       <div className={styles.bg} ref={bg}>
-        <div className={`${styles.showcase}`}></div>
+        <div className={styles.showcase}></div>
       </div>
       <div className={styles.xScrollContainer} ref={galleryContainer}>
         <header className={styles.header}>
-          <Blobs type={"v1"} />
+          <Blobs type="v1" />
           <TextReveal className={styles.description}>
             From designing beautiful user interfaces to developing next-level
             experiences on the web.
@@ -60,7 +47,7 @@ function About() {
             specialize in creating bespoke websites, mobile apps, and web
             applications that are tailored to your specific needs.
           </TextReveal>
-          <Blobs type={"v2"} />
+          <Blobs type="v2" />
         </header>
       </div>
     </section>
