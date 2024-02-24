@@ -4,11 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function CTA() {
-
   return (
-    <div
-      className="fixed z-50 inset-x-0 top-5 mx-5 flex max-w-screen-lg items-center justify-between space-y-3 rounded-xl border-black bg-white px-5 pb-4 pt-0 drop-shadow-2xl transition-all duration-150 ease-in-out dark:border  dark:bg-zinc-950 dark:text-white lg:flex-row lg:space-y-0 lg:pt-2 xl:mx-auto shadow-xl justify-between"
-    >
+    <div className="fixed z-50 inset-x-0 top-5 mx-5 flex max-w-screen-lg items-center justify-between space-y-3 rounded-xl backdrop-blur-sm dark:bg-black/30 bg-white px-5 pb-4 pt-0 drop-shadow-2xl transition-all duration-150 ease-in-out  dark:text-white lg:flex-row lg:space-y-0 lg:pt-2 xl:mx-auto shadow-xl">
       <div className="flex">
         <Link
           className="flex items-center w-10 h-10 p-2 mt-2 rounded-full text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black dark:bg-white dark:text-black dark:hover:bg-indigo-100 dark:hover:text-indigo-600 py-2 mr-5"
@@ -45,7 +42,7 @@ export default function CTA() {
 
       <div className="hidden md:flex">
         <Link
-          className="flex items-center w-10 h-10 p-2 mt-2 rounded-full text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black dark:bg-gray-500 dark:text-black dark:hover:bg-indigo-100 dark:hover:text-indigo-600 py-2 mr-5"
+          className="flex items-center w-10 h-10 p-2 mt-2 rounded-full transition-all duration-150 ease-in-out  text-zinc-200 hover:bg-white hover:text-black dark:bg-black/30 dark:text-white dark:hover:bg-indigo-100 dark:hover:text-indigo-600 py-2 mr-5"
           href="https://linkedin.com/in/sreeharshk"
         >
           <svg
@@ -60,7 +57,7 @@ export default function CTA() {
           </svg>
         </Link>
         <Link
-          className="flex items-center w-10 h-10 p-2 mt-2 rounded-full text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black dark:bg-gray-500 dark:text-black dark:hover:bg-indigo-100 dark:hover:text-indigo-600 py-2 mr-5"
+          className="flex items-center w-10 h-10 p-2 mt-2 rounded-full transition-all duration-150 ease-in-out text-zinc-200 hover:bg-white hover:text-black dark:bg-black/30 dark:text-white dark:hover:bg-indigo-100 dark:hover:text-indigo-600 py-2 mr-5"
           href="https://github.com/sreeharshrajan"
         >
           <svg
@@ -79,7 +76,7 @@ export default function CTA() {
           </svg>
         </Link>
         <Link
-          className="flex items-center w-10 h-10 p-2 mt-2 rounded-full text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black dark:bg-gray-500 dark:text-black dark:hover:bg-indigo-100 dark:hover:text-indigo-600 py-2"
+          className="flex items-center w-10 h-10 p-2 mt-2 rounded-full  transition-all duration-150 ease-in-out text-zinc-200 hover:bg-white hover:text-black dark:bg-black/30 dark:text-white dark:hover:bg-indigo-100 dark:hover:text-indigo-600 py-2"
           href="https://twitter.com/SreeharshR"
         >
           <svg
@@ -99,7 +96,7 @@ export default function CTA() {
         href="/contact"
         // rel="noreferrer"
         // target="_blank"
-        className="inline-flex items-center rounded-md border border-black bg-black px-4 text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black dark:border-white dark:bg-white dark:text-black dark:hover:bg-gray-100 dark:hover:text-indigo-600 py-2 font-medium"
+        className="inline-flex items-center rounded-md  bg-black px-4 text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black  dark:bg-white dark:text-black dark:hover:bg-zinc-50 dark:hover:text-indigo-600 py-2 font-medium"
       >
         <span className="mr-1">Let&apos;s Talk</span>
         <svg

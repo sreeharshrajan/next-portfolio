@@ -1,18 +1,14 @@
 [
   {
-    "position": "Senior Frontend Developer",
-    "company": "TenTwenty Digital Agency",
-    "duration": "January 2022 - September 2023",
-    "location": "Remote",
-    "image": "/company/tentwenty.svg",
-    "url": "https://www.tentwenty.me/",
+    "position": "Full Stack Developer",
+    "company": "Kods Technologolies Pvt. Ltd",
+    "duration": "November 2023 - February 2024",
+    "location": "Bengaluru",
+    "image": "",
+    "url": "https://www.kods.tech/",
     "responsibilities": [
-      "Built animation-focused websites using React JS, GSAP, and the Locomotive Scroll library.",
-      "Integrated websites seamlessly with Concrete CMS for 100% easy content management.",
-      "Collaborated with designers and backend developers, delivering 10+ top-notch websites on time.",
-      "Achieved more than 50% faster webpage loading on every project, prioritizing performance and speed.",
-      "Experienced Arabic RTL layout in two significant projects.",
-      "Successfully met deadlines, delivering 10+ projects on time."
+      "Led the development of an Learning Management System, delivering of high-quality and high-performance code using Laravel and React.js.",
+      "I have introduced restructuring and refactoring projects at KODS, enhancing code       maintainability and project efficience."
     ],
     "color": {
       "h": "221",
@@ -21,17 +17,15 @@
     }
   },
   {
-    "position": "UI & FE Developer",
-    "company": "Denge Bilgisayar",
-    "duration": "May 2018 - January 2022",
-    "location": "Hybrid",
-    "image": "/company/denge-bilgisayar.svg",
-    "url": "httsp://denge.com.tr/",
+    "position": "Full Stack Developer",
+    "company": "Afaq Al Samaa",
+    "duration": "June 2022 - November 2023",
+    "location": "Remote",
+    "image": "/company/afaqae.svg",
+    "url": "https://afaqae.com/",
     "responsibilities": [
-      "Re-designed over 85 unique pages for B2B, CRM, and corporate websites in Figma.",
-      "Collaborated closely with two backend developers, creating the frontend of the entire project.",
-      "Ensured fast page loading, scoring over 90 in page speed.",
-      "Focused on making the B2B e-commerce platform easy to use for 3000+ business customers."
+      "Worked on multiple roles, developed the Khadamath Billing Software using LAMP Stack, and upgrading to Vue.js version, writing APIs. ",
+      "Responsible for designing and developing various websites using WordPress."
     ],
     "color": {
       "h": "206",
@@ -40,16 +34,15 @@
     }
   },
   {
-    "position": "Frontend Developer",
-    "company": "Agency Look",
-    "duration": "April 2017 - May 2018",
-    "location": "On-site",
+    "position": "IT Assistant",
+    "company": "Environmental Management and Policy Research Institute",
+    "duration": "December 2021 - June 2022",
+    "location": "Bengaluru",
     "image": "/company/agency-look.svg",
-    "url": "https://look.agency/",
+    "url": "https://empri.karnataka.gov.in/en",
     "responsibilities": [
-      "Developed and maintained functional pages for web applications.",
-      "Worked with a .NET based custom CMS.",
-      "Built hundreds of responsive HTML email template modules, reducing email template processing time significantly."
+      "Worked as Technical Lead for the NGC Department, overseeing the design and development of a Portal for Eco-Clubs in the state reporting directly to Director. ",
+      "Worked with the implementation Karnataka Open Data Initiative (KODI) for the institute."
     ],
     "color": {
       "h": "240",
@@ -58,14 +51,16 @@
     }
   },
   {
-    "position": "Web Designer",
-    "company": "Softanka Yazılım",
-    "duration": "January 2016 - March 2017",
-    "location": "On-site",
-    "image": "/company/softanka.svg",
-    "url": "https://www.playanka.com/",
+    "position": "UI/UX Designer",
+    "company": "MResult Services Ltd.",
+    "duration": "September 2019 - March 2020",
+    "location": "Mangaluru, Karnataka, India",
+    "image": "/company/mresultindia.svg",
+    "url": "http://mresultindia.com/",
     "responsibilities": [
-      "Designed and developed themes for game markets"
+      "User Interface design for Web and Mobile, WordPress Website, HTML5, Bootstrap Websites, Creating mockups using Photoshop",
+      " Created website user flow and interface from design requirements by clients, Branding and Promotional Contents.",
+      "Created demo videos of SharePoint Portals with Premiere Pro and Motion Graphics with After Effects"
     ],
     "color": {
       "h": "210",
