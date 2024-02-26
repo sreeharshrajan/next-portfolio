@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="antialiased overflow-hidden">
+    <html lang="en" className="antialiased overflow-x-hidden">
       <body
         className={`${inter.className} bg-zinc-50 dark:bg-indigo-950 overflow-x-hidden`}
       >
