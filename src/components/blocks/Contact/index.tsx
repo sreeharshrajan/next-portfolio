@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
@@ -22,11 +22,8 @@ interface Status {
   info: { error: boolean; msg: string | null };
 }
 
-export function getStaticProps() {}
-
 const Contact: React.FC = () => {
-  const baseUrl = process.env.FORM_SPREE_API;
-console.log(baseUrl)
+  const baseUrl = process.env.NEXT_PUBLIC_FORMSPREE_API;
   const [status, setStatus] = useState<Status>({
     submitted: false,
     submitting: false,
@@ -77,7 +74,7 @@ console.log(baseUrl)
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
     axios({
       method: "POST",
-      url: "https://formspree.io/f/xkndbjnb",
+      url: baseUrl,
       data: inputs,
     })
       .then((response) => {
