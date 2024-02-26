@@ -1,24 +1,157 @@
 "use client";
 
 import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import Link from "next/link";
 
 import styles from "./styles.module.scss";
 import Title from "@/hooks/Title";
 import Blobs from "@/components/ui/Blobs";
-import Companies from "@/database/experience.json";
+import Works from "@/database/projects.json";
+import Magnet from "@/hooks/Magnet";
 
 function Projects() {
   const container = useRef<HTMLDivElement>(null);
+  const galleryContainer = useRef<HTMLDivElement>(null);
+  const bg = useRef<HTMLDivElement>(null);
+  const { contextSafe } = useGSAP({ scope: container });
+
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
+      const gallery = galleryContainer.current;
+
+      // Horizontal Scroll
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: gallery,
+          start: "top top",
+          end: () => {
+            return `+=${gallery?.clientWidth ?? 0 - window.innerWidth}`;
+          },
+          pin: true,
+          scrub: true,
+          invalidateOnRefresh: true,
+        },
+      });
+      let mm = gsap.matchMedia();
+      mm.add("(max-width: 991px)", () => {
+        tl.to(gallery, {
+          ease: "none",
+        });
+      });
+      mm.add("(min-width: 992px)", () => {
+        tl.to(gallery, {
+          x: () => {
+            return `+=${gallery?.clientWidth ?? 0 - window.innerWidth}`;
+          },
+          ease: "none",
+        });
+
+        let browserArray: HTMLElement[] = gsap.utils.toArray(
+          `.${styles.browser}`
+        );
+        browserArray.forEach((browser, index) => {
+          gsap.from(browser, {
+            xPercent: 20,
+            duration: 1,
+            ease: "elastic",
+            scrollTrigger: {
+              trigger: browser,
+              containerAnimation: tl,
+              start: "left right",
+              toggleActions: "play none none reverse",
+              id: index.toString(), 
+            },
+          });
+        });
+      });
+    },
+    { scope: galleryContainer }
+  );
+
+  const scrollToSection = contextSafe((e: string | HTMLElement) => {
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: e,
+    });
+  });
 
   return (
-    <section className={styles.section} id={"experience"} ref={container}>
-      <Blobs type={"v1"} classVariable={`${styles.blob}`} />
-      <Blobs type={"v2"} classVariable={`${styles.blob}`} />
-      <header className={styles.header}>
+    <section id={"works"} ref={container}>
+      <div className={styles.bg} ref={bg}>
+        <div></div>
+      </div>
+      <div className={styles.xScrollContainer} ref={galleryContainer}>
         <Title color={"white"}>
-          <span>Projects</span> <br />
+          <span>My</span> <br /> Works
         </Title>
-      </header>
+        {Works.map((work, index) => {
+          const lightness = parseFloat(work.color.l);
+
+          return (
+            <div
+              key={index}
+              className={`${styles.browser}`}
+              style={{
+                "--h": work.color.h,
+                "--s": work.color.s,
+                "--l": work.color.l,
+              } as any}
+            >
+              <div
+                className={`${styles.browserHeader} ${lightness >= 50 ? styles.dark : ""}`}
+              >
+                <h3 className={styles.title}>{work.title}</h3>
+                <span className={styles.date}>{work.date}</span>
+
+                {work.url && work.url.trim() !== "" && (
+                  <Magnet>
+                    <Link
+                      target={"_blank"}
+                      className={styles.redirect}
+                      href={work.url}
+                    >
+                      <span>Visit</span>
+                      <svg
+                        width="93"
+                        height="93"
+                        viewBox="0 0 93 93"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="93" height="93" rx="46.5" fill="white" />
+                        <path
+                          d="M30.0541 60.6172C29.2717 61.3969 29.2717 62.6611 30.0541 63.4407C30.8365 64.2204 32.105 64.2204 32.8874 63.4407L30.0541 60.6172ZM64.56 31.0512C64.56 29.9486 63.663 29.0547 62.5565 29.0547H44.5252C43.4188 29.0547 42.5218 29.9486 42.5218 31.0512C42.5218 32.1538 43.4188 33.0477 44.5252 33.0477H60.553V49.0199C60.553 50.1225 61.45 51.0164 62.5565 51.0164C63.663 51.0164 64.56 50.1225 64.56 49.0199V31.0512ZM32.8874 63.4407L63.9732 32.463L61.1398 29.6395L30.0541 60.6172L32.8874 63.4407Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </Link>
+                  </Magnet>
+                )}
+              </div>
+              <div className={styles.browserBody}>
+                <Image
+                  src={work.image}
+                  alt={work.title}
+                  sizes="100vw"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                  }}
+                  width={1920}
+                  height={1080}
+                  className={styles.image}
+                  loading={"lazy"}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 }

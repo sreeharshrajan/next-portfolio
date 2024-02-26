@@ -1,9 +1,71 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-export default function CTA() {
+import styles from "./navbar.module.scss";
+import Link from "next/link";
+import pages from "@/database/config/navigation.json";
+
+export default function Navigation() {
+  gsap.registerPlugin(ScrollToPlugin);
+
+  const navigationRef = useRef<HTMLDivElement>(null);
+
+  const { contextSafe } = useGSAP({ scope: navigationRef });
+
+  const doAnim = contextSafe((e: string | HTMLElement) => {
+    let height;
+    let width;
+    let x;
+    let y;
+    let bg;
+
+    if (typeof e !== "string") {
+      // Ensure e is an HTMLElement
+      height = e.offsetHeight;
+      width = e.offsetWidth;
+      x = e.offsetLeft;
+      y = e.offsetTop;
+      bg = e.parentNode?.parentNode?.parentNode?.querySelector(`.${styles.bg}`);
+    }
+
+    if (bg) {
+      gsap.to(bg, {
+        duration: 0.3,
+        scale: 1,
+        x: x,
+        y: y,
+        width: width,
+        height: height,
+        autoAlpha: 1,
+      });
+    }
+  });
+
+  const resetAnim = contextSafe((e: string | HTMLElement) => {
+    let bg;
+    if (typeof e !== "string") {
+      bg = e.parentNode?.parentNode?.parentNode?.querySelector(`.${styles.bg}`);
+    }
+    if (bg) {
+      gsap.to(bg, {
+        duration: 0.3,
+        scale: 0,
+        autoAlpha: 0,
+      });
+    }
+  });
+
+  const scrollToSection = contextSafe((e: string) => {
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: e,
+    });
+  });
+
   return (
     <div className="overflow-hidden">
       <div className="fixed z-50 inset-x-0 top-5 mx-5 flex max-w-screen-lg items-center justify-between space-y-3 rounded-xl backdrop-blur-sm dark:bg-black/30 bg-white px-5 pb-4 pt-0 drop-shadow-2xl transition-all duration-150 ease-in-out  dark:text-white lg:flex-row lg:space-y-0 lg:pt-2 xl:mx-auto shadow-xl ">
@@ -28,16 +90,19 @@ export default function CTA() {
               <polyline points="9 22 9 12 15 12 15 22"></polyline>
             </svg>
           </Link>
-          <nav className="hidden md:ml-auto md:flex mt-2 flex-wrap items-center text-base justify-center">
-            <a href="/about" className="mr-5  dark:hover:text-indigo-400">
+          <nav
+            className="hidden md:ml-auto md:flex mt-2 flex-wrap items-center text-base justify-center"
+            ref={navigationRef}
+          >
+            <Link href="#" className="mr-5  dark:hover:text-indigo-400">
               About
-            </a>
-            <a href="/skills" className="mr-5  dark:hover:text-indigo-400">
+            </Link>
+            <Link href="#" className="mr-5  dark:hover:text-indigo-400">
               Skills
-            </a>
-            <a href="/projects" className="mr-5  dark:hover:text-indigo-400">
+            </Link>
+            <Link href="#" className="mr-5  dark:hover:text-indigo-400">
               Projects
-            </a>
+            </Link>
           </nav>
         </div>
 

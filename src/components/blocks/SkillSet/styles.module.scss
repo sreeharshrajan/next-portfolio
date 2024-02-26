@@ -1,11 +1,50 @@
 @import "@assets/styles/media-queries.scss";
 
-.section{
+.section {
   position: relative;
-  padding: var(--y-spacing) var(--x-spacing);
-  background-color: hsl(var(--color-bg-alt));
+  padding: var(--x-spacing) 0;
+  background: hsl(var(--color-bg-alt));
 }
 
-.header{
-  margin-bottom: var(--x-spacing);
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: var(--y-spacing) var(--x-spacing) 0;
+  gap: 6rem;
+
+  overflow: hidden;
+}
+
+.blobs {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.blob {
+  pointer-events: none;
+  user-select: none;
+  &.blobV1 {
+    top: 20%;
+    height: 20%;
+  }
+  &.blobV2 {
+    top: 20%;
+    height: 40%;
+  }
+}
+
+.title {
+  font-size: var(--fs-sm);
+  color: hsla(var(--color-white), 0.8);
+  font-weight: var(--fw-bold);
+}
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 40ch;
+  font-size: var(--fs-xs);
+  color: hsl(var(--color-body));
 }

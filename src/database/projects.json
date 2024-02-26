@@ -1,7 +1,7 @@
 [
   {
     "title": "UAE Year of",
-    "image": "/reference/uae-yearof.jpg",
+    "image": "/assets/images/projects/one.svg",
     "description": "Welcome to the Year of Sustainability. Sustainability is about protecting our land, resources and one another today, for a better tomorrow.",
     "url": "https://uaeyearof.ae/",
     "date": "2023",
@@ -10,6 +10,71 @@
       "h": "30",
       "s": "100%",
       "l": "90%"
+    }
+  },
+  {
+    "title": "R Qitects",
+    "image": "/assets/images/projects/one.svg",
+    "description": "Premier design studio and architecture company in the UAE. Enhance your projects with our top architects, leading the way in innovative and timeless design solutions.",
+    "url": "https://rqitects.com/",
+    "date": "2022",
+    "service": "Development",
+    "color": {
+      "h": "0",
+      "s": "0%",
+      "l": "0%"
+    }
+  },
+  {
+    "title": "R Qitects",
+    "image": "/assets/images/projects/one.svg",
+    "description": "Premier design studio and architecture company in the UAE. Enhance your projects with our top architects, leading the way in innovative and timeless design solutions.",
+    "url": "https://rqitects.com/",
+    "date": "2022",
+    "service": "Development",
+    "color": {
+      "h": "0",
+      "s": "0%",
+      "l": "0%"
+    }
+  },
+  {
+    "title": "R Qitects",
+    "image": "/assets/images/projects/one.svg",
+    "description": "Premier design studio and architecture company in the UAE. Enhance your projects with our top architects, leading the way in innovative and timeless design solutions.",
+    "url": "https://rqitects.com/",
+    "date": "2022",
+    "service": "Development",
+    "color": {
+      "h": "0",
+      "s": "0%",
+      "l": "0%"
+    }
+  },
+  {
+    "title": "R Qitects",
+    "image": "/assets/images/projects/one.svg",
+    "description": "Premier design studio and architecture company in the UAE. Enhance your projects with our top architects, leading the way in innovative and timeless design solutions.",
+    "url": "https://rqitects.com/",
+    "date": "2022",
+    "service": "Development",
+    "color": {
+      "h": "0",
+      "s": "0%",
+      "l": "0%"
+    }
+  },
+  {
+    "title": "R Qitects",
+    "image": "/assets/images/projects/one.svg",
+    "description": "Premier design studio and architecture company in the UAE. Enhance your projects with our top architects, leading the way in innovative and timeless design solutions.",
+    "url": "https://rqitects.com/",
+    "date": "2022",
+    "service": "Development",
+    "color": {
+      "h": "0",
+      "s": "0%",
+      "l": "0%"
     }
   }
 ]
