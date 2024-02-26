@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, MouseEventHandler } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -16,21 +16,34 @@ export default function Navigation() {
 
   const { contextSafe } = useGSAP({ scope: navigationRef });
 
-  const doAnim = contextSafe((e: string | HTMLElement) => {
-    let height;
-    let width;
-    let x;
-    let y;
-    let bg;
-
-    if (typeof e !== "string") {
-      // Ensure e is an HTMLElement
-      height = e.offsetHeight;
-      width = e.offsetWidth;
-      x = e.offsetLeft;
-      y = e.offsetTop;
-      bg = e.parentNode?.parentNode?.parentNode?.querySelector(`.${styles.bg}`);
+  const doAnim: MouseEventHandler<HTMLAnchorElement | HTMLButtonElement> = (
+    event
+  ) => {
+    const target = event.currentTarget;
+    const element = target instanceof HTMLElement ? target : null;
+    if (element) {
+      doAnimHandler(element);
     }
+  };
+
+  const resetAnim: MouseEventHandler<HTMLAnchorElement | HTMLButtonElement> = (
+    event
+  ) => {
+    const target = event.currentTarget;
+    const element = target instanceof HTMLElement ? target : null;
+    if (element) {
+      resetAnimHandler(element);
+    }
+  };
+
+  const doAnimHandler = (element: HTMLElement) => {
+    let height = element.offsetHeight;
+    let width = element.offsetWidth;
+    let x = element.offsetLeft;
+    let y = element.offsetTop;
+    let bg = element.parentNode?.parentNode?.parentNode?.querySelector(
+      `.${styles.bg}`
+    );
 
     if (bg) {
       gsap.to(bg, {
@@ -43,13 +56,12 @@ export default function Navigation() {
         autoAlpha: 1,
       });
     }
-  });
+  };
 
-  const resetAnim = contextSafe((e: string | HTMLElement) => {
-    let bg;
-    if (typeof e !== "string") {
-      bg = e.parentNode?.parentNode?.parentNode?.querySelector(`.${styles.bg}`);
-    }
+  const resetAnimHandler = (element: HTMLElement) => {
+    let bg = element.parentNode?.parentNode?.parentNode?.querySelector(
+      `.${styles.bg}`
+    );
     if (bg) {
       gsap.to(bg, {
         duration: 0.3,
@@ -57,7 +69,7 @@ export default function Navigation() {
         autoAlpha: 0,
       });
     }
-  });
+  };
 
   const scrollToSection = contextSafe((e: string) => {
     gsap.to(window, {
