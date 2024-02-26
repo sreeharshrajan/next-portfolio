@@ -94,7 +94,31 @@ export default function Navigation() {
             className="hidden md:ml-auto md:flex mt-2 flex-wrap items-center text-base justify-center"
             ref={navigationRef}
           >
-            <Link href="#" className="mr-5  dark:hover:text-indigo-400">
+            {Object.values(pages)
+              .filter((item) => item.showOnNavigation)
+              .filter((item) => item.isActive)
+              .map((item, index) => (
+                <span key={index} className="mr-5">
+                  {item.link.startsWith("#") ? (
+                    <button
+                      onMouseEnter={doAnim}
+                      onMouseLeave={resetAnim}
+                      onClick={() => scrollToSection(item.link)}
+                    >
+                      {item.title}
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.link}
+                      onMouseEnter={doAnim}
+                      onMouseLeave={resetAnim}
+                    >
+                      {item.title}
+                    </Link>
+                  )}
+                </span>
+              ))}
+            {/* <Link href="#" className="mr-5  dark:hover:text-indigo-400">
               About
             </Link>
             <Link href="#" className="mr-5  dark:hover:text-indigo-400">
@@ -102,7 +126,7 @@ export default function Navigation() {
             </Link>
             <Link href="#" className="mr-5  dark:hover:text-indigo-400">
               Projects
-            </Link>
+            </Link> */}
           </nav>
         </div>
 
@@ -158,7 +182,7 @@ export default function Navigation() {
         </div>
 
         {/* CTA Button */}
-        <Link
+        {/* <Link
           href="/contact"
           // rel="noreferrer"
           // target="_blank"
@@ -178,7 +202,7 @@ export default function Navigation() {
           >
             <path d="M7 17l9.2-9.2M17 17V7H7" />
           </svg>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

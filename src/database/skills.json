@@ -1,16 +1,26 @@
 [
   {
-    "icon": "IconJS",
-    "image": "/icon/icon-js.svg",
+    "image": "/assets/images/skills/js.svg",
     "title": "JavaScript",
     "subtitle": "Vanilla, jQuery",
     "description": "I bring websites to life with JavaScript, adding interactive features and optimizing performance with clean and efficient code."
   },
   {
-    "icon": "IconReact",
-    "image": "/icon/icon-react.svg",
+    "image": "/assets/images/skills/react.svg",
     "title": "React JS",
     "subtitle": "Next.js, Vercel",
+    "description": "Using React, I craft scalable user interfaces with components, state management, and virtual DOM manipulation for seamless web applications."
+  },
+  {
+    "image": "/assets/images/skills/gsap.svg",
+    "title": "GSAP",
+    "subtitle": "Animation Library",
+    "description": "Using React, I craft scalable user interfaces with components, state management, and virtual DOM manipulation for seamless web applications."
+  },
+  {
+    "image": "/assets/images/skills/figma.svg",
+    "title": "Figma",
+    "subtitle": "UI/UX Tool",
     "description": "Using React, I craft scalable user interfaces with components, state management, and virtual DOM manipulation for seamless web applications."
   }
 ]

@@ -10,6 +10,7 @@ import "@/assets/styles/globals.scss";
 import "@/assets/styles/globals.css";
 import LenisScroller from "@/hooks/LenisScroller";
 import CustomCursor from "@/components/ui/CustomCursor";
+import Footer from "@/components/layout/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,12 +31,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="antialiased overflow-hidden">
-      <body className={`${inter.className} bg-zinc-50 dark:bg-indigo-950 overflow-x-hidden`}>
+      <body
+        className={`${inter.className} bg-zinc-50 dark:bg-indigo-950 overflow-x-hidden`}
+      >
         <Navbar />
         {children}
+        <Footer />
         <Analytics />
         <SpeedInsights />
-        <CustomCursor/>
+        <CustomCursor />
         <LenisScroller />
       </body>
     </html>

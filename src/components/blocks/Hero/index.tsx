@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeIn } from "@utils/animate";
@@ -9,9 +9,14 @@ import styles from "./hero.module.scss";
 import Particles from "@/components/ui/Particles";
 
 const Hero = () => {
+  const container = useRef<HTMLDivElement>(null);
+
   const [playAnimation, setPlayAnimation] = useState(true);
   return (
-    <div className="relative overflow-hidden min-h-screen min-w-screen">
+    <section
+      className="relative overflow-hidden min-h-screen min-w-screen"
+      ref={container}
+    >
       <Particles className={styles.particlesBG} />
 
       <div
@@ -87,7 +92,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

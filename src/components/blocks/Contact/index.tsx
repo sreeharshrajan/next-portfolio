@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, ChangeEvent, FormEvent, useRef } from "react";
 import axios from "axios";
 
 import Input from "@/components/ui/Input";
@@ -23,6 +23,8 @@ interface Status {
 }
 
 const Contact: React.FC = () => {
+  const container = useRef<HTMLDivElement>(null);
+
   const baseUrl = process.env.NEXT_PUBLIC_FORMSPREE_API;
   const [status, setStatus] = useState<Status>({
     submitted: false,
@@ -93,7 +95,11 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section className="flex flex-col justify-center items-center">
+    <section
+      id={"contact"}
+      className="flex flex-col justify-center items-center"
+      ref={container}
+    >
       <div className="container sm:py-8 md:py-16 lg:py-32 px-4 md:px-6">
         <div className="grid gap-12 lg:gap-14">
           <div className="space-y-4 text-center flex flex-col items-center justify-center">

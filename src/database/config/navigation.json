@@ -1,12 +1,12 @@
 {
-  "works": {
+  "about": {
     "isActive": true,
     "showOnNavigation": true,
     "showOnFooter": true,
-    "title": "Works",
+    "title": "About",
     "description": "Here's a curated selection showcasing my expertise and the achieved results.",
     "image": "",
-    "link": "#works"
+    "link": "#about"
   },
   "skills": {
     "isActive": true,
@@ -15,6 +15,24 @@
     "title": "Skills",
     "description": "Check out the things I'm good at, from building websites to design and more.",
     "image": "",
-    "link": "#skills"
+    "link": "#skillset"
+  },
+  "experience": {
+    "isActive": true,
+    "showOnNavigation": true,
+    "showOnFooter": true,
+    "title": "Experience",
+    "description": "Check out the things I'm good at, from building websites to design and more.",
+    "image": "",
+    "link": "#experience"
+  },
+  "contact": {
+    "isActive": true,
+    "showOnNavigation": true,
+    "showOnFooter": true,
+    "title": "Contact",
+    "description": "Check out the things I'm good at, from building websites to design and more.",
+    "image": "",
+    "link": "#contact"
   }
 }

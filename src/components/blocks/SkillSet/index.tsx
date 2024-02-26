@@ -13,7 +13,9 @@ import styles from "./styles.module.scss";
 import Title from "@/hooks/Title";
 import Blobs from "@/components/ui/Blobs";
 import Ticker from "@/components/ui/Ticker";
+import Item from "./Item";
 
+import Skills from "@/database/skills.json";
 import Companies from "@/database/experience.json";
 
 function SkillSet() {
@@ -21,7 +23,7 @@ function SkillSet() {
 
   return (
     <>
-      <section className={`${styles.section}`} id={"skills"} ref={container}>
+      <section className={`${styles.section}`} id={"skillset"} ref={container}>
         <div className={styles.blobs}>
           <Blobs
             type={"v2"}
@@ -36,6 +38,16 @@ function SkillSet() {
           <Title color={"white"}>
             <span>My</span> <br /> Skillset
           </Title>
+          <div className="flex flex-row">
+            {Skills.map((item, index) => (
+              <Item
+                key={index}
+                title={item.title || ""}
+                image={item.image || ""}
+                subtitle={item.subtitle || ""}
+              />
+            ))}
+          </div>
         </div>
       </section>
       <Ticker

@@ -30,7 +30,7 @@ function About() {
   }, []);
 
   return (
-    <section className={styles.section} id="works" ref={container}>
+    <section className={styles.section} id="about" ref={container}>
       <div className={styles.bg} ref={bg}>
         <div className={styles.showcase}></div>
       </div>
