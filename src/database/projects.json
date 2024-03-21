@@ -1,19 +1,19 @@
 [
   {
-    "title": "Room Booking System",
-    "image": "/assets/images/projects/",
-    "description": " Laravel-based web app allowing users to browse, select, and book available rooms for specified dates.",
+    "title": "Fitbody Scan",
+    "image": "/assets/images/projects/fitbody.svg",
+    "description": "Fitbody Scan website, built with React, offers an innovative InBody scan solution. Experience seamless navigation and comprehensive body analysis, empowering users to track their fitness journey with precision and convenience.",
     "url": "",
     "date": "2023",
     "type": "Full Stack Development",
-    "tags": "Laravel",
-    "color": "rose"
+    "tags": "React.js",
+    "color": "indigo"
   },
   {
     "title": "Junior Science Station",
     "image": "/assets/images/projects/jss.png",
     "description": "While the COVID Panademic has been spreading across the world, e-learning intiatives made an impressive way ahead causing students to learning through digital assets. Junior Science Station is more such an effort to make learning more open-source and easy.",
-    "url": "",
+    "url": "https://juniorsciencestation.netlify.app/",
     "date": "2020",
     "type": "Single Page Application",
     "tags": "Hugo",
