@@ -9,7 +9,7 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="lg:my-20 w-11/12 md:w-10/12 lg:w-4/6 xl:w-4/6 py-11 space-y-20 min-h-dvh"
+      className="lg:my-20 w-11/12 md:w-10/12 lg:w-4/6 xl:w-4/6 py-11 space-y-20 min-h-lvh"
       ref={container}
     >
       <h1 className="text-4xl text-center font-base mt-16 lg:mt-24 tracking-wide text-white">

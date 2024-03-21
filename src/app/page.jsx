@@ -9,7 +9,7 @@ import GetInTouch from "@/components/blocks/GetInTouch";
 
 const index = () => {
   return (
-    <main className="flex min-dvh flex-col items-center justify-between ">
+    <main className="flex min-h-lvh flex-col items-center justify-between ">
       <Hero />
       <About />
       <Projects />

@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-dvh relative flex flex-col items-center justify-center text-center w-full user-select-none  overflow-hidden"
+      className="min-h-lvh relative flex flex-col items-center justify-center text-center w-full user-select-none  overflow-hidden"
       ref={container}
     >
       <div className="space-y-4">
@@ -51,7 +51,7 @@ const Hero = () => {
             variants={fadeIn("up", "tween", 1.5, 1)}
             whileInView={`show`}
             initial={`hidden`}
-            className="py-3 px-4 z-50 inset-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent shadow-indigo-500/50 text-indigo-400 border-indigo-500 hover:text-white hover:bg-indigo-500 disabled:opacity-50  cursor-pointer  dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            className="py-3 px-4 z-50 inset-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border  shadow-indigo-500/50 text-indigo-400 border-indigo-500 hover:text-white hover:bg-indigo-500 disabled:opacity-50  cursor-pointer  dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
             href="https://drive.google.com/file/d/1xgTWwFi0HR9cd9Wi1FmlllvIcmk8ZuZJ/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"

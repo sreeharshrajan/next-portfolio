@@ -12,7 +12,7 @@ const Skills = () => {
   return (
     <section
       id="skillset"
-      className="lg:my-20 w-11/12 md:w-10/12 lg:w-4/6 xl:w-4/6 py-11 space-y-6 min-h-dvh"
+      className="lg:my-20 w-11/12 md:w-10/12 lg:w-4/6 xl:w-4/6 py-11 space-y-6 min-h-lvh"
       ref={container}
     >
       <h3 className="text-4xl text-center font-base mt-16 lg:mt-24 tracking-wide text-white">

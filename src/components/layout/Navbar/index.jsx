@@ -64,7 +64,7 @@ function Navbar() {
 
   return (
     <header className="fixed z-50 inset-x-0 top-5 px-4 max-w-screen-lg mx-auto">
-      <div className="flex items-center justify-between space-y-3 rounded-xl backdrop-filter backdrop-blur-md dark:bg-white/5 bg-white px-5 pb-4 pt-0 drop-shadow-2xl transition-all duration-150 ease-in-out  dark:text-white lg:flex-row lg:space-y-0 lg:pt-2 shadow-xl">
+      <div className="flex items-center justify-between space-y-3 rounded-xl backdrop-filter backdrop-blur-md dark:bg-white/5 bg-white px-4 pb-4 pt-0 drop-shadow-2xl transition-all duration-150 ease-in-out  dark:text-white lg:flex-row lg:space-y-0 lg:pt-2 shadow-xl">
         <div className="flex">
           <Link
             className="flex items-center w-10 h-10 p-2 mt-2 rounded-full text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black dark:bg-white dark:text-black dark:hover:bg-indigo-100 dark:hover:text-indigo-600 py-2 mr-2 md:mr-5"
@@ -89,7 +89,7 @@ function Navbar() {
           </Link>
           {pathname === "/" && (
             <nav
-              className="ml-auto flex mt-2 flex-wrap items-center text-sm md:text-base justify-center gap-1"
+              className="ml-auto flex mt-2 flex-wrap items-center text-sm md:text-base justify-center gap-1 md:gap-4"
               ref={navigationRef}
             >
               {Object.values(pages)

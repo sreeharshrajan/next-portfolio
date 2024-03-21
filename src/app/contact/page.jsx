@@ -77,7 +77,7 @@ function Contact() {
       });
   };
   return (
-    <div className="min-h-dvh flex flex-col items-center justify-center text-center w-full pt-16 lg:pt-24">
+    <div className="min-h-lvh flex flex-col items-center justify-center text-center w-full pt-16 lg:pt-24">
       <div className="container px-4">
         <div className="space-y-4 mb-6 text-center flex flex-col items-center justify-center">
           <h2 className="font-semibold text-4xl md:text-6xl">
