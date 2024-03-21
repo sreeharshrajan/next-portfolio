@@ -1,26 +1,166 @@
-[
-  {
-    "image": "/assets/images/skills/js.svg",
-    "title": "JavaScript",
-    "subtitle": "Vanilla, jQuery",
-    "description": "I bring websites to life with JavaScript, adding interactive features and optimizing performance with clean and efficient code."
-  },
-  {
-    "image": "/assets/images/skills/react.svg",
-    "title": "React JS",
-    "subtitle": "Next.js, Vercel",
-    "description": "Using React, I craft scalable user interfaces with components, state management, and virtual DOM manipulation for seamless web applications."
-  },
-  {
-    "image": "/assets/images/skills/gsap.svg",
-    "title": "GSAP",
-    "subtitle": "Animation Library",
-    "description": "Using React, I craft scalable user interfaces with components, state management, and virtual DOM manipulation for seamless web applications."
-  },
-  {
-    "image": "/assets/images/skills/figma.svg",
-    "title": "Figma",
-    "subtitle": "UI/UX Tool",
-    "description": "Using React, I craft scalable user interfaces with components, state management, and virtual DOM manipulation for seamless web applications."
-  }
-]
+{
+  "Frontend": [
+    {
+      "image": "/assets/icons/skills/html.svg",
+      "title": "HTML5",
+      "subtitle": "Hypertext Markup Language",
+      "description": "I create semantic and structured web content with HTML5, leveraging its latest features and elements to ensure accessibility, compatibility, and responsiveness across different devices and browsers."
+    },
+    {
+      "image": "/assets/icons/skills/css.svg",
+      "title": "CSS",
+      "subtitle": "Cascading Style Sheets",
+      "description": "I design visually appealing and responsive web layouts with CSS, utilizing its selectors, properties, and preprocessors to style HTML elements and enhance user interface aesthetics."
+    },
+    {
+      "image": "/assets/icons/skills/js.svg",
+      "title": "JavaScript",
+      "subtitle": "Scripting Language",
+      "description": "I develop interactive and dynamic web functionality with JavaScript, leveraging its versatility and libraries to enhance user experience and create engaging web applications."
+    },
+    {
+      "image": "/assets/icons/skills/vue.svg",
+      "title": "Vue.js",
+      "subtitle": "Frontend Framework",
+      "description": "I leverage the power of Vue.js to build reactive and dynamic user interfaces, enhancing user experience with its simplicity and flexibility."
+    },
+    {
+      "image": "/assets/icons/skills/react.svg",
+      "title": "React.js",
+      "subtitle": "Frontend Library",
+      "description": "I develop interactive and scalable user interfaces with React.js, utilizing its component-based architecture and virtual DOM for efficient web application development."
+    },
+    {
+      "image": "/assets/icons/skills/next-js.svg",
+      "title": "Next.js",
+      "subtitle": "React Framework",
+      "description": "I use Next.js to build server-side rendered and statically generated React applications, optimizing performance and enabling seamless navigation for users."
+    },
+    {
+      "image": "/assets/icons/skills/redux.svg",
+      "title": "Redux",
+      "subtitle": "State Management",
+      "description": "I manage application state effectively with Redux, utilizing its predictable state container and middleware capabilities to streamline data flow and ensure consistency across components."
+    },
+    {
+      "image": "/assets/icons/skills/react-router.svg",
+      "title": "React Router",
+      "subtitle": "Routing Library",
+      "description": "I implement dynamic routing in React applications with React Router, enabling navigation between different components and views while maintaining a single-page architecture."
+    },
+
+    {
+      "image": "/assets/icons/skills/jquery.svg",
+      "title": "jQuery",
+      "subtitle": "JavaScript Library",
+      "description": "I enhance DOM manipulation and event handling in web development projects with jQuery, simplifying code syntax and improving cross-browser compatibility for efficient client-side scripting."
+    },
+    {
+      "image": "/assets/icons/skills/bootstrap.svg",
+      "title": "Bootstrap",
+      "subtitle": "Frontend Framework",
+      "description": "I utilize Bootstrap to create responsive and mobile-first web designs, leveraging its grid system, components, and utilities to expedite frontend development and ensure consistency in design."
+    },
+    {
+      "image": "/assets/icons/skills/tailwindcss.svg",
+      "title": "Tailwind CSS",
+      "subtitle": "Utility-first CSS Framework",
+      "description": "I design custom and responsive user interfaces with Tailwind CSS, leveraging its utility classes and configuration options to streamline CSS development and achieve pixel-perfect designs."
+    }
+  ],
+  "Backend": [
+    {
+      "image": "/assets/icons/skills/laravel.svg",
+      "title": "Laravel",
+      "subtitle": "Backend Framework",
+      "description": "I develop robust and scalable backend solutions with Laravel, utilizing its expressive syntax and comprehensive ecosystem to deliver efficient web applications."
+    },
+    {
+      "image": "/assets/icons/skills/php-light.svg",
+      "title": "PHP",
+      "subtitle": "Server-side Scripting Language",
+      "description": "I leverage PHP to build dynamic and interactive web applications, utilizing its versatility and wide support to create powerful backend functionality."
+    },
+    {
+      "image": "/assets/icons/skills/api.svg",
+      "title": "REST API",
+      "subtitle": "API Architecture",
+      "description": "I design and implement RESTful APIs to facilitate communication between web services, enabling seamless integration and interaction between different systems and platforms."
+    },
+    {
+      "image": "/assets/icons/skills/mysql.svg",
+      "title": "MySQL",
+      "subtitle": "Database Management System",
+      "description": "I manage and query data effectively with MySQL, leveraging its relational structure and robust features to ensure efficient storage and retrieval of information for web applications."
+    },
+    {
+      "image": "/assets/icons/skills/ajax.png",
+      "title": "AJAX",
+      "subtitle": "Asynchronous JavaScript and XML",
+      "description": "I implement AJAX techniques to create dynamic and responsive web applications, enabling seamless data exchange between the client and server without requiring full page reloads."
+    },
+    {
+      "image": "/assets/icons/skills/firebase.svg",
+      "title": "Firebase",
+      "subtitle": "Backend as a Service",
+      "description": "I integrate Firebase services to develop real-time applications, handle user authentication, and manage data storage with ease, ensuring seamless user experiences."
+    }
+  ],
+  "Tools": [
+    {
+      "image": "/assets/icons/skills/postman.svg",
+      "title": "Postman",
+      "subtitle": "API Development",
+      "description": "I streamline API development and testing workflows with Postman, facilitating collaboration and ensuring the reliability and scalability of web APIs."
+    },
+    {
+      "image": "/assets/icons/skills/vscode.svg",
+      "title": "Visual Studio Code",
+      "subtitle": "Code Editor",
+      "description": "I enhance my productivity and streamline development workflows with Visual Studio Code, leveraging its rich ecosystem of extensions and intuitive interface for coding projects."
+    },
+    {
+      "image": "/assets/icons/skills/netlify-light.svg",
+      "title": "Netlify",
+      "subtitle": "Hosting Platform",
+      "description": "I deploy and host websites with Netlify, leveraging its seamless continuous integration and deployment pipelines to deliver high-performance web experiences."
+    },
+    {
+      "image": "/assets/icons/skills/github.svg",
+      "title": "GitHub",
+      "subtitle": "Version Control",
+      "description": "I manage and collaborate on code projects efficiently with GitHub, utilizing version control and collaborative features to streamline development workflows."
+    },
+    {
+      "image": "/assets/icons/skills/figma.svg",
+      "title": "Figma",
+      "subtitle": "UI/UX Design",
+      "description": "I create visually appealing designs and prototypes with Figma, collaborating seamlessly with team members to iterate and refine user interfaces."
+    },
+    {
+      "image": "/assets/icons/skills/photoshop.svg",
+      "title": "Adobe Photoshop",
+      "subtitle": "Image Editing Software",
+      "description": "I manipulate and enhance icons with Adobe Photoshop, creating stunning visual assets and graphics for web and print media projects."
+    },
+    {
+      "image": "/assets/icons/skills/wordpress.svg",
+      "title": "WordPress",
+      "subtitle": "Content Management System",
+      "description": "I create dynamic and customizable websites with WordPress, leveraging its extensive plugin ecosystem and user-friendly interface to deliver tailored web solutions."
+    },
+
+    {
+      "image": "/assets/icons/skills/asana.svg",
+      "title": "Asana",
+      "subtitle": "Project Management",
+      "description": "I manage projects and tasks efficiently with Asana, organizing workflows, assigning responsibilities, and tracking progress to ensure timely delivery of deliverables."
+    },
+    {
+      "image": "/assets/icons/skills/notion-light.svg",
+      "title": "Notion",
+      "subtitle": "Collaboration",
+      "description": "I collaborate effectively with team members using Notion, centralizing project documentation, tasks, and communication to foster transparency and productivity."
+    }
+  ]
+}

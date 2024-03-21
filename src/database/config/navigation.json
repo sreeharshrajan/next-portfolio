@@ -25,14 +25,5 @@
     "description": "Check out the things I'm good at, from building websites to design and more.",
     "image": "",
     "link": "#experience"
-  },
-  "contact": {
-    "isActive": true,
-    "showOnNavigation": true,
-    "showOnFooter": true,
-    "title": "Contact",
-    "description": "Check out the things I'm good at, from building websites to design and more.",
-    "image": "",
-    "link": "#contact"
   }
 }
