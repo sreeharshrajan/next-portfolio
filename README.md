@@ -1,4 +1,4 @@
-![userinterface](https://github.com/sreeharshrajan/next-portfolio/blob/bb93aeee90624ca6611162044b6272b99411c16a/next-portfolio.jpg)
+![figma-mockup](https://github.com/sreeharshrajan/next-portfolio/blob/main/next-portfolio.jpg)
 
 ## Getting Started
 
