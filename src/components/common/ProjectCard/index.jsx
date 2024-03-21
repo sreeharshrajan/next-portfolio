@@ -45,7 +45,7 @@ function ProjectCard({ project }) {
       <p className="mt-1 text-base lg:text-md">{project.type || ""}</p>
       <div className="flex flex-row mt-2">
         <div
-          className={` ${project.color ? `bg-${project.color}-400` : `bg-pink-400`} px-3 py-1 rounded-full text-xs font-bold text-gray-950 hidden md:block`}
+          className={` ${project.color ? project.color : `bg-pink-400`} px-3 py-1 rounded-full text-xs font-bold text-gray-950 hidden md:block`}
         >
           {project.tags || ""}
         </div>

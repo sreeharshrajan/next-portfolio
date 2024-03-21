@@ -3,11 +3,11 @@
     "title": "Fitbody Scan",
     "image": "/assets/images/projects/fitbody.svg",
     "description": "Fitbody Scan website, built with React, offers an innovative InBody scan solution. Experience seamless navigation and comprehensive body analysis, empowering users to track their fitness journey with precision and convenience.",
-    "url": "",
+    "url": "https://fitbodyscan.ae/",
     "date": "2023",
-    "type": "Full Stack Development",
+    "type": "Frontend Development",
     "tags": "React.js",
-    "color": "indigo"
+    "color": "bg-indigo-200"
   },
   {
     "title": "Junior Science Station",
@@ -17,7 +17,7 @@
     "date": "2020",
     "type": "Single Page Application",
     "tags": "Hugo",
-    "color": "yellow"
+    "color": "bg-yellow-200"
   },
   {
     "title": "todoListe",
@@ -27,7 +27,7 @@
     "date": "2020",
     "type": "Frontend Development",
     "tags": "React.js",
-    "color": "indigo"
+    "color": "bg-indigo-200"
   },
   {
     "title": "Space Tourism Website",
@@ -37,6 +37,6 @@
     "date": "2023",
     "type": "Frontend Development",
     "tags": "React.js",
-    "color": "indigo"
+    "color": "bg-indigo-200"
   }
 ]
