@@ -15,7 +15,7 @@ function ProjectCard({ project }) {
         href={project.url}
       >
         <Image
-          class="w-full h-full object-center object-cover transition-transform transform-gpu duration-1000 group-hover:scale-110 ease-in-out"
+          className="w-full h-full object-center object-cover transition-transform transform-gpu duration-1000 group-hover:scale-110 ease-in-out"
           src={project.image}
           width={100}
           height={100}
@@ -45,7 +45,7 @@ function ProjectCard({ project }) {
       <p className="mt-1 text-base lg:text-md">{project.type || ""}</p>
       <div className="flex flex-row mt-2">
         <div
-          class={` ${project.color ? `bg-${project.color}-400` : `bg-pink-400`} px-3 py-1 rounded-full text-xs font-bold text-gray-950 hidden md:block`}
+          className={` ${project.color ? `bg-${project.color}-400` : `bg-pink-400`} px-3 py-1 rounded-full text-xs font-bold text-gray-950 hidden md:block`}
         >
           {project.tags || ""}
         </div>

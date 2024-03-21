@@ -67,7 +67,7 @@ function Navbar() {
       <div className="flex items-center justify-between space-y-3 rounded-xl backdrop-filter backdrop-blur-md dark:bg-white/5 bg-white px-5 pb-4 pt-0 drop-shadow-2xl transition-all duration-150 ease-in-out  dark:text-white lg:flex-row lg:space-y-0 lg:pt-2 shadow-xl">
         <div className="flex">
           <Link
-            className="flex items-center w-10 h-10 p-2 mt-2 rounded-full text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black dark:bg-white dark:text-black dark:hover:bg-indigo-100 dark:hover:text-indigo-600 py-2 mr-5"
+            className="flex items-center w-10 h-10 p-2 mt-2 rounded-full text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black dark:bg-white dark:text-black dark:hover:bg-indigo-100 dark:hover:text-indigo-600 py-2 mr-2 md:mr-5"
             href="/"
             onClick={() => scrollToSection("#home")}
           >
@@ -89,14 +89,14 @@ function Navbar() {
           </Link>
           {pathname === "/" && (
             <nav
-              className="ml-auto flex mt-2 flex-wrap items-center text-base justify-center"
+              className="ml-auto flex mt-2 flex-wrap items-center text-sm md:text-base justify-center gap-1"
               ref={navigationRef}
             >
               {Object.values(pages)
                 .filter((item) => item.showOnNavigation)
                 .filter((item) => item.isActive)
                 .map((item, index) => (
-                  <span key={index} className="mr-5">
+                  <span key={index}>
                     {item.link.startsWith("#") ? (
                       <button
                         onMouseEnter={doAnim}
@@ -176,7 +176,7 @@ function Navbar() {
         {/* CTA Button */}
         <Link
           href="/contact"
-          className="inline-flex items-center rounded-md  bg-black px-4 text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black dark:bg-white dark:text-black dark:hover:bg-zinc-50 dark:hover:text-indigo-600 py-2 font-semibold"
+          className="inline-flex items-center rounded-md bg-black  text-white transition-all ease-in-out hover:bg-white hover:text-black dark:bg-white dark:text-black dark:hover:bg-zinc-50 dark:hover:text-indigo-600 px-2 py-1 md:py-2 md:px-4 text-sm md:text-base font-semibold"
         >
           <span className="mr-1">Let&apos;s Talk</span>
           <svg

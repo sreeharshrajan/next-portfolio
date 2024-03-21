@@ -13,10 +13,10 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-dvh relative flex flex-col items-center justify-center text-center w-full user-select-none pointer-events-none overflow-hidden"
+      className="min-h-dvh relative flex flex-col items-center justify-center text-center w-full user-select-none  overflow-hidden"
       ref={container}
     >
-      <div className="space-y-4 ">
+      <div className="space-y-4">
         <motion.h5
           variants={fadeIn("down", "tween", 0.3, 1)}
           whileInView={`show`}
@@ -43,17 +43,18 @@ const Hero = () => {
           initial={`hidden`}
           className="text-lg text-gray-50 text-center"
         >
-          Empowering Your Ideas Through <br /> Development Expertise <br />
+          Who Empower Your Ideas With <br /> Development Expertise <br />
           and Seamless User Interfaces
         </motion.p>
-        <div className="mt-8 gap-3 flex justify-center">
+        <div className="mt-10 gap-3 flex justify-center">
           <motion.a
             variants={fadeIn("up", "tween", 1.5, 1)}
             whileInView={`show`}
             initial={`hidden`}
-            className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-indigo-500 text-white hover:bg-indigo-700 disabled:opacity-50  cursor-pointer disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-            href="/assets/files/Sreeharsh_Resume.pdf"
-            download
+            className="py-3 px-4 z-50 inset-6 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent shadow-indigo-500/50 text-indigo-400 border-indigo-500 hover:text-white hover:bg-indigo-500 disabled:opacity-50  cursor-pointer  dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            href="https://drive.google.com/file/d/1xgTWwFi0HR9cd9Wi1FmlllvIcmk8ZuZJ/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Download Resume
             <svg

@@ -11,8 +11,8 @@ function SkillCard({ skill }) {
         alt={`${skill.title} Icon`}
       />
       <div>
-        <h3 className="text-2xl">{skill.title || ""}</h3>
-        <p className="text-sm">{skill.subtitle || ""}</p>
+        <h3 className="text-lg md:text-xl">{skill.title || ""}</h3>
+        <p className="text-xs md:text-sm">{skill.subtitle || ""}</p>
       </div>
     </div>
   );
