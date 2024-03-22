@@ -4,7 +4,7 @@ function Button({ children, disabled, type }) {
   return (
     <button
       type={type}
-      className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-md font-normal bg-primary text-white shadow-sm bg-zinc-600 hover:bg-zinc-700 h-14 px-4 py-2"
+      className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm md:text-md font-normal bg-primary text-white shadow-sm bg-indigo-500 hover:bg-indigo-700 h-12 md:h-14 md:px-4 md:py-2"
       disabled={disabled}
     >
       {children}

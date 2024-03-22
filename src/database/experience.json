@@ -1,11 +1,12 @@
 [
   {
     "position": "Full Stack Developer",
-    "company": "Kods Technologies Pvt. Ltd.",
+    "company": "Kods",
+    "company-full": "Kods Technologies Pvt. Ltd.",
     "duration": "Nov 2023 - Feb 2024",
-    "location": "Bengaluru, Karnataka, India",
+    "location": "Bengaluru, India",
     "image": "",
-    "url": "https://www.kods.tech/",
+    "url": "https://www.kodstech.com/",
     "responsibilities": [
       "Led the development of an Learning Management System, delivering of high-quality and high-performance code using Laravel and React.js.",
       "I have introduced restructuring and refactoring projects at KODS, enhancing code       maintainability and project efficience."
@@ -18,7 +19,8 @@
   },
   {
     "position": "Full Stack Developer",
-    "company": "Afaq Al Samaa IT Services",
+    "company": "Afaq Al Samaa",
+    "company-full": "Afaq Al Samaa IT Services",
     "duration": "Jun 2022 - Nov 2023",
     "location": "Remote",
     "image": "/company/afaqae.svg",
@@ -35,9 +37,10 @@
   },
   {
     "position": "IT Assistant",
-    "company": "Environmental Management and Policy Research Institute",
+    "company": "EMPRI",
+    "company-full": "Environmental Management and Policy Research Institute",
     "duration": "Dec 2021 - Jun 2022",
-    "location": "Bengaluru, Karnataka, India",
+    "location": "Bengaluru, India",
     "image": "/company/agency-look.svg",
     "url": "https://empri.karnataka.gov.in/en",
     "responsibilities": [
@@ -52,9 +55,10 @@
   },
   {
     "position": "UI/UX Designer",
-    "company": "MResult Services Ltd.",
+    "company": "MResult",
+    "company-full": "MResult Services Ltd.",
     "duration": "Sept 2019 - Mar 2020",
-    "location": "Mangaluru, Karnataka, India",
+    "location": "Mangaluru, India",
     "image": "/company/mresultindia.svg",
     "url": "http://mresultindia.com/",
     "responsibilities": [

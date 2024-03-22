@@ -1,4 +1,8 @@
+"use client";
 import React from "react";
+
+import { motion } from "framer-motion";
+import { fadeIn } from "@/utils/animate.helper";
 
 import Hero from "@/components/blocks/Hero";
 import About from "@/components/blocks/About";
@@ -9,14 +13,19 @@ import GetInTouch from "@/components/blocks/GetInTouch";
 
 const index = () => {
   return (
-    <main className="flex min-h-lvh flex-col items-center justify-between ">
+    <motion.main
+      variants={fadeIn("down", "tween", 0.15, 1)}
+      whileInView={`show`}
+      initial={`hidden`}
+      className="flex min-h-lvh flex-col items-center justify-between "
+    >
       <Hero />
       <About />
       <Projects />
       <Skills />
       <Experience />
       <GetInTouch />
-    </main>
+    </motion.main>
   );
 };
 

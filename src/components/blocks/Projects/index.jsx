@@ -19,7 +19,7 @@ function Projects() {
         <div className="mt-12 grid grid-cols-2 gap-6 lg:grid-cols-3 xl:grid-cols-4">
           {projectList.map((project, index) => (
             <div key={index}>
-              <ProjectCard project={project} />
+              <ProjectCard index={index} project={project} />
             </div>
           ))}
         </div>

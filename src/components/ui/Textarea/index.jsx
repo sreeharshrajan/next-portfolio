@@ -10,7 +10,7 @@ const Textarea = ({
   fixed,
   required,
 }) => {
-  const textareaClassName = `flex w-full rounded-md bg-zinc-800 px-3 py-4 text-md ${className} ${fixed ? "fixed-textarea" : ""}`;
+  const textareaClassName = `flex w-full rounded-md bg-zinc-800 px-2 py-3 md:px-3 md:py-4 text-sm md:text-base ${className} ${fixed ? "fixed-textarea" : ""}`;
 
   return (
     <textarea

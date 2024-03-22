@@ -1,12 +1,18 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { fadeIn } from "@/utils/animate.helper";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-function ProjectCard({ project }) {
+function ProjectCard({ index, project }) {
   return (
-    <div
+    <motion.a
+      variants={fadeIn("up", "tween", 0.25 * index, 1.5)}
+      whileInView={`show`}
+      initial={`hidden`}
       href={project.url}
       className="group block transition-all transform motion-reduce:transition-none motion-reduce:hover:transform-none hover:bg-white/5 backdrop-blur-lg p-4 rounded-lg  overflow-hidden max-w-lg w-full duration-500 "
     >
@@ -50,7 +56,7 @@ function ProjectCard({ project }) {
           {project.tags || ""}
         </div>
       </div>
-    </div>
+    </motion.a>
   );
 }
 

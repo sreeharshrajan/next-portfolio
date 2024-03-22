@@ -38,7 +38,7 @@ const Skills = () => {
       <div className="flex overflow-y-hidden gap-6 py-4 ">
         {skillset.Tools.map((skill, index) => (
           <div key={index}>
-            <SkillCard key={index} skill={skill} />
+            <SkillCard index={index} skill={skill} />
           </div>
         ))}
       </div>

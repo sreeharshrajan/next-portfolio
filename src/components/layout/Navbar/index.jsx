@@ -89,7 +89,7 @@ function Navbar() {
           </Link>
           {pathname === "/" && (
             <nav
-              className="ml-auto flex mt-2 flex-wrap items-center text-sm md:text-base justify-center gap-1 md:gap-4"
+              className="ml-auto flex mt-3 md:mt-2 flex-wrap items-center text-sm md:text-base justify-center gap-2 md:gap-4"
               ref={navigationRef}
             >
               {Object.values(pages)

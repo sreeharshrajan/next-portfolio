@@ -3,6 +3,9 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
 
+import { motion } from "framer-motion";
+import { fadeIn, staggerContainerChildren } from "@/utils/animate.helper";
+
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
 import Button from "@/components/ui/Button";
@@ -63,10 +66,7 @@ function Contact() {
       data: inputs,
     })
       .then((response) => {
-        handleServerResponse(
-          true,
-          "Thank you, your message has been sent."
-        );
+        handleServerResponse(true, "Thank you, your message has been sent.");
       })
       .catch((error) => {
         handleServerResponse(
@@ -77,17 +77,38 @@ function Contact() {
       });
   };
   return (
-    <div className="min-h-lvh flex flex-col items-center justify-center text-center w-full pt-16 lg:pt-24">
+    <motion.main
+      variants={staggerContainerChildren}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0.25 }}
+      className="min-h-lvh flex flex-col items-center justify-center text-center w-full pt-16 lg:pt-24"
+    >
       <div className="container px-4">
-        <div className="space-y-4 mb-6 text-center flex flex-col items-center justify-center">
-          <h2 className="font-semibold text-4xl md:text-6xl">
+        <div className="space-y-2 lg:space-y-4 mb-16 text-center flex flex-col items-center justify-center">
+          <motion.h2
+            variants={fadeIn("up", "tween", 0.25, 1)}
+            whileInView={`show`}
+            initial={`hidden`}
+            className="font-semibold text-2xl md:text-4xl lg:text-6xl"
+          >
             Leave a message
-          </h2>
-          <p className="text-gray-500 sm:text-lg md:text-xl dark:text-gray-400 ">
+          </motion.h2>
+          <motion.p
+            variants={fadeIn("up", "tween", 0.5, 1.5)}
+            whileInView={`show`}
+            initial={`hidden`}
+            className="text-gray-500 text-sm md:text-lg lg:text-xl dark:text-gray-400 "
+          >
             Let&apos;s get to know eachother.
-          </p>
+          </motion.p>
         </div>
-        <div className="mx-auto max-w-2xl space-y-4">
+        <motion.div
+          variants={fadeIn("up", "tween", 0.8, 1)}
+          whileInView={`show`}
+          initial={`hidden`}
+          className="mx-auto max-w-2xl space-y-4"
+        >
           <form className="grid gap-4" onSubmit={handleOnSubmit}>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -139,9 +160,9 @@ function Contact() {
             <div className="error">Error: {status.info.msg}</div>
           )}
           {!status.info.error && status.info.msg && <p>{status.info.msg}</p>}
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.main>
   );
 }
 

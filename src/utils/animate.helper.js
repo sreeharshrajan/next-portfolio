@@ -1,20 +1,18 @@
-export const textVariant = (delay) => {
-  return {
-    hidden: {
-      y: -50,
-      opacity: 0,
+export const textVariant = (delay) => ({
+  hidden: {
+    y: 50,
+    opacity: 0,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      duration: 1.25,
+      delay,
     },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        duration: 1.25,
-        delay: delay,
-      },
-    },
-  };
-};
+  },
+});
 
 export const fadeIn = (direction, type, delay, duration) => {
   return {
@@ -82,6 +80,19 @@ export const staggerContainer = (staggerChildren, delayChildren = 0) => {
       transition: {
         staggerChildren: staggerChildren,
         delayChildren: delayChildren,
+      },
+    },
+  };
+};
+
+export const staggerContainerChildren = (delay = 0) => {
+  return {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.5,
+        delayChildren: delay,
       },
     },
   };
