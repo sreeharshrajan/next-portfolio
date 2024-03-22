@@ -83,11 +83,11 @@ const Contact = () => {
       className="flex flex-col justify-center items-center"
       ref={container}
     >
-      <div className="container sm:py-8 md:py-16 lg:py-32 px-4 md:px-6">
+      <div className="container py-8 md:py-16 lg:py-32 px-4 md:px-6">
         <div className="grid gap-12 lg:gap-14">
           <div className="space-y-4 text-center flex flex-col items-center justify-center">
             <h2 className="font-semibold text-4xl md:text-6xl">Say hi!</h2>
-            <p className="text-gray-500 sm:text-lg md:text-xl md:w-6/12 lg:w-3/12 dark:text-gray-400 ">
+            <p className="text-gray-500 text-lg md:text-xl md:w-6/12 lg:w-3/12 dark:text-gray-400 ">
               Want to create something awesome? have any query? Drop an email or
               message.
             </p>

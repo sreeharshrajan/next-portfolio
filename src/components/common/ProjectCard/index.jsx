@@ -9,8 +9,8 @@ import Link from "next/link";
 
 function ProjectCard({ index, project }) {
   return (
-    <motion.a
-      variants={fadeIn("up", "tween", 0.25 * index, 1.5)}
+    <motion.div
+      variants={fadeIn("up", "ease", 0.2 * index, 0.5)}
       whileInView={`show`}
       initial={`hidden`}
       href={project.url}
@@ -56,7 +56,7 @@ function ProjectCard({ index, project }) {
           {project.tags || ""}
         </div>
       </div>
-    </motion.a>
+    </motion.div>
   );
 }
 

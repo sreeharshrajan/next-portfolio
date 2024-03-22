@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { fadeIn, staggerContainerChildren } from "@/utils/animate.helper";
 import Image from "next/image";
 
 import skillset from "@/database/skills.json";
@@ -8,16 +10,23 @@ import SkillCard from "@/components/common/SkillCard";
 
 const Skills = () => {
   const container = useRef(null);
-  console.log(skillset);
   return (
-    <section
+    <motion.section
+      variants={staggerContainerChildren(1.5)}
+      whileInView={`show`}
+      initial={`hidden`}
       id="skillset"
       className="lg:my-20 w-11/12 md:w-10/12 lg:w-4/6 xl:w-4/6 py-11 space-y-6 min-h-lvh"
       ref={container}
     >
-      <h3 className="text-4xl text-center font-base mt-16 lg:mt-24 tracking-wide text-white">
+      <motion.h3
+        variants={fadeIn("up", "tween", 0.25, 1)}
+        whileInView={`show`}
+        initial={`hidden`}
+        className="text-2xl lg:text-4xl text-center font-base mt-16 lg:mt-24 tracking-wide text-white"
+      >
         Skills
-      </h3>
+      </motion.h3>
       <h1 className="text-xl font-light tracking-wide text-white">Frontend</h1>
       <div className="flex overflow-auto gap-6 py-4">
         {skillset.Frontend.map((skill, index) => (
@@ -42,7 +51,7 @@ const Skills = () => {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -11,7 +11,7 @@
   },
   {
     "title": "Junior Science Station",
-    "image": "/assets/images/projects/jss.png",
+    "image": "/assets/images/projects/jss.svg",
     "description": "While the COVID Panademic has been spreading across the world, e-learning intiatives made an impressive way ahead causing students to learning through digital assets. Junior Science Station is more such an effort to make learning more open-source and easy.",
     "url": "https://juniorsciencestation.netlify.app/",
     "date": "2020",
@@ -21,7 +21,7 @@
   },
   {
     "title": "todoListe",
-    "image": "/assets/images/projects/toDoListe.jpg",
+    "image": "/assets/images/projects/toDoListe.svg",
     "description": "A simple and beautiful CRUD App built using Reactjs and Firebase SDK V9. Create new todo's and view them on the app. Also, update the status of the todo and also delete them.",
     "url": "",
     "date": "2020",
