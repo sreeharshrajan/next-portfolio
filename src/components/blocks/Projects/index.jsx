@@ -12,7 +12,7 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="my-10 lg:my-20 w-11/12 md:w-5/6 lg:w-4/6 xl:w-3/4 py-10 space-y-10"
+      className="my-10 lg:my-20 w-11/12 md:w-5/6 lg:w-4/6 xl:w-3/4 py-10 space-y-10 scroll-my-12 snap-start"
       ref={container}
     >
       <motion.h3

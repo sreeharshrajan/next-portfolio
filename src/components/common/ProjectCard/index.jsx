@@ -10,11 +10,11 @@ import Link from "next/link";
 function ProjectCard({ index, project }) {
   return (
     <motion.div
-      variants={fadeIn("up", "ease", 0.2 * index, 0.5)}
+      variants={fadeIn("up", "tween", 0.5 * index, 0.1)}
       whileInView={`show`}
       initial={`hidden`}
       href={project.url}
-      className="group block transition-all transform motion-reduce:transition-none motion-reduce:hover:transform-none hover:bg-white/5 backdrop-blur-lg p-4 rounded-lg  overflow-hidden max-w-lg w-full duration-500 "
+      className="group block hover:bg-white/5 backdrop-blur-lg p-4 rounded-lg  overflow-hidden max-w-lg w-full duration-500 "
     >
       <Link
         className="relative inline-block aspect-w-4 w-full aspect-h-3 bg-cover overflow-hidden rounded-lg"

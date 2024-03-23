@@ -35,7 +35,7 @@
 
 ::-webkit-scrollbar-thumb {
   /* background: rgb(28, 18, 37); */
-  background: rgb(79, 70, 229, 0.15);
+  background: rgb(79, 70, 229, 0.01);
   border-radius: 10px;
 }
 
@@ -45,7 +45,7 @@
 
 ::-webkit-scrollbar-track {
   /* background: #131016ec; */
-  background: rgb(79, 70, 229, 0.15);
+  background: rgb(79, 70, 229, 0);
 }
 
 ::selection {

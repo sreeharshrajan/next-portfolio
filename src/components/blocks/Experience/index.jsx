@@ -12,7 +12,7 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="lg:my-20 w-11/12 md:w-10/12 lg:w-4/6 xl:w-4/6 py-11 space-y-10 md:space-y-20 md:min-h-lvh"
+      className="lg:my-20 w-11/12 md:w-10/12 lg:w-4/6 xl:w-4/6 py-10 space-y-10 md:space-y-20 md:min-h-lvh flex justify-center flex-col scroll-mt-24 snap-start"
       ref={container}
     >
       <motion.h3

@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`antialiased`}>
       <body
-        className={`${font.className} bg-zinc-50 dark:bg-stone-950 dark:text-white overflow-x-hidden`}
+        className={`${font.className} snap-y bg-zinc-50 dark:bg-stone-950 dark:text-white overflow-x-hidden`}
       >
         <Navbar />
         {children}
