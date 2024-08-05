@@ -1,4 +1,22 @@
 [
+    {
+    "position": "Full Stack Developer",
+    "company": "Webcastle",
+    "company-full": "Webcastle Media Pvt. Ltd.",
+    "duration": "April 2024 - Present",
+    "location": "Kochi, India",
+    "image": "",
+    "url": "https://webcastletech.com/",
+    "responsibilities": [
+      "I specialize in creating high-performing eCommerce websites using Laravel, seamlessly integrating advanced technologies for optimal performance.",
+      "My expertise in React and Laravel API has successfully enhanced the performance of previously developed eCommerce applications by 40%, demonstrating my proficiency in cutting-edge web development."
+    ],
+    "color": {
+      "h": "221",
+      "s": "79%",
+      "l": "51%"
+    }
+  },
   {
     "position": "Full Stack Developer",
     "company": "Kods",
