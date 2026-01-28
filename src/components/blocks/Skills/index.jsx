@@ -20,7 +20,7 @@ const Skills = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-3xl lg:text-4xl tracking-wider text-stone-900 dark:text-white"
+          className="text-3xl lg:text-4xl tracking-wider text-center text-stone-900 dark:text-white"
         >
           Skills
         </motion.h3>

@@ -1,35 +1,54 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { textVariant, staggerContainerChildren } from "@/utils/animate.helper";
-import React, { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useRef } from "react";
+
+const Word = ({ children, progress, range }) => {
+  const opacity = useTransform(progress, range, [0, 1]);
+  return (
+    <span className="relative mr-3 mt-2 inline-block">
+      <span className="absolute opacity-15">{children}</span>
+      <motion.span style={{ opacity }}>{children}</motion.span>
+    </span>
+  );
+};
+
+const Paragraph = ({ value }) => {
+  const element = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: element,
+    offset: ["start 0.8", "start 0.3"], // Adjusts when the reveal starts/ends
+  });
+
+  const words = value.split(" ");
+
+  return (
+    <p ref={element} className="flex flex-wrap leading-tight">
+      {words.map((word, i) => {
+        const start = i / words.length;
+        const end = start + 1 / words.length;
+        return (
+          <Word key={i} range={[start, end]} progress={scrollYProgress}>
+            {word}
+          </Word>
+        );
+      })}
+    </p>
+  );
+};
 
 const About = () => {
-  const container = useRef(null);
   return (
-    <motion.section
-      variants={staggerContainerChildren}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: false, amount: 0.25 }}
+    <section
       id="about"
-      className="w-11/12 md:w-10/12 lg:w-4/6 xl:w-4/6 py-11 space-y-6 text-2xl md:text-3xl font-light tracking-wide"
-      ref={container}
+      className="w-11/12 md:w-10/12 lg:w-4/6 xl:w-4/6 py-12 space-y-12 text-3xl md:text-5xl font-medium tracking-tight"
     >
-      <motion.p
-        variants={textVariant(0.4)}
-        className="leading-10 mt-16 lg:mt-24"
-      >
-        From designing beautiful user interfaces to developing next-level
-        experiences on the web.
-      </motion.p>
-      <motion.p variants={textVariant(0.6)} className="leading-10">
-        A designer and developer based in Bengaluru, India. <br /> With years of
-        experience in the industry, I specialize in creating bespoke websites,
-        mobile apps, and web applications that are tailored to your specific
-        needs.
-      </motion.p>
-    </motion.section>
+      <div className="mt-16 lg:mt-24">
+        <Paragraph value="From designing beautiful user interfaces to developing next-level experiences on the web." />
+      </div>
+      
+      <Paragraph value="A designer and developer based in Bengaluru, India. With years of experience in the industry, I specialize in creating bespoke websites, mobile apps, and web applications that are tailored to your specific needs." />
+    </section>
   );
 };
 

@@ -22,11 +22,10 @@ const Experience = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-3xl lg:text-5xl font-black tracking-tighter text-white"
+          className="text-3xl lg:text-4xl tracking-wider text-center text-stone-900 dark:text-white"
         >
           Career Path
         </motion.h3>
-        <div className="h-1.5 w-12 bg-indigo-500 rounded-full" />
       </div>
 
       {/* Experience List - Simplified Hierarchy */}
