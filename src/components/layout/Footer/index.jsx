@@ -1,30 +1,56 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useMemo, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
-
-import Home from "@assets/icons/home.svg";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import config from "@/database/config/metadata.json";
-import links from "@/database/config/pages.json";
+
+// Register ScrollTrigger for the reveal effect
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 function Footer() {
-  const date = new Date();
-  const year = date.getFullYear();
+  const container = useRef(null);
+  const year = useMemo(() => new Date().getFullYear(), []);
+
+  useGSAP(() => {
+    // Reveal animation for footer elements
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 90%", // Starts when the top of the footer hits 90% of the viewport
+        toggleActions: "play none none reverse",
+      }
+    });
+
+    tl.from(".footer-item", {
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power3.out"
+    });
+  }, { scope: container });
 
   return (
     <footer
-      className="flex flex-col items-center py-10 bg-stone-950"
-      id={"footer"}
+      ref={container}
+      className="flex flex-col items-center py-20 bg-stone-950 overflow-hidden"
+      id="footer"
     >
+      {/* Home Icon with Smooth Hover Scale */}
       <Link
-        className="flex items-center w-10 h-10 p-2 mt-2 rounded-full text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black dark:bg-white dark:text-black dark:hover:bg-indigo-100 dark:hover:text-indigo-600 py-2 mr-5"
         href="/"
+        aria-label="Back to home"
+        className="footer-item group flex items-center justify-center w-12 h-12 rounded-full text-white transition-all duration-500 ease-out hover:bg-white hover:text-black hover:scale-110 active:scale-95"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
+          width="20"
+          height="20"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -32,36 +58,36 @@ function Footer() {
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
         </svg>
       </Link>
-      {/* <nav className="mx-auto flex my-4 md:my-6 lg:my-10 flex-wrap items-center text-white justify-center">
-        {links.map((link, index) => (
-          <Link
-            key={index}
-            className={`mr-4 md:mr-6 lr:my-10  dark:hover:text-indigo-400`}
-            href={link.to}
-          >
-            {link.title}
-          </Link>
-        ))}
-      </nav> */}
-      <div className="mx-auto flex flex-col text-center text-white my-4 md:my-6 lg:my-10 flex-wrap items-center leading-loose justify-center">
-        <p>&copy; {year} Sreeharsh Rajan </p>
-        <p>
-          Powered by Vercel, Next.js, and{" "}
-          <a
-            href="https://github.com/sreeharshrajan"
-            className="group transition-all duration-300 ease-in-out hover:underline  underline-offset-2 hover:text-yellow-400"
-          >
-            GitHub
-          </a>
-          .
-        </p>
-      </div>
-      <div className="mx-auto flex text-center text-yellow-400 flex-wrap items-center leading-loose justify-center">
-        {config.content["verse"]}
+
+      <div className="mt-8 flex flex-col items-center text-center">
+        {/* Attribution Text */}
+        <div className="footer-item text-stone-400 text-sm md:text-base font-medium space-y-1">
+          <p>© {year} Sreeharsh Rajan</p>
+          <p className="opacity-70">
+            Powered by
+            <span className="text-stone-200"> Vercel</span>,
+            <span className="text-stone-200 font-semibold"> Next.js</span>, and{" "}
+            <a
+              href="https://github.com/sreeharshrajan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-stone-200 transition-all duration-300 hover:text-yellow-400 decoration-stone-800 hover:decoration-yellow-400 underline underline-offset-4"
+            >
+              GitHub
+            </a>
+          </p>
+        </div>
+
+        {/* Dynamic Quote with Magnetic-style reveal */}
+        {config.content["verse"] && (
+          <blockquote className="footer-item mt-12 px-6 max-w-xl italic text-yellow-400/80 text-sm md:text-base leading-relaxed tracking-wide selection:bg-yellow-400 selection:text-black">
+            &ldquo;{config.content["verse"]}&rdquo;
+          </blockquote>
+        )}
       </div>
     </footer>
   );

@@ -1,57 +1,76 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { fadeIn, staggerContainerChildren } from "@/utils/animate.helper";
-import Image from "next/image";
-
+import { fadeIn } from "@/utils/animate.helper";
 import skillset from "@/database/skills.json";
 import SkillCard from "@/components/common/SkillCard";
+import InfiniteMarquee from "@/components/common/InfiniteMarquee";
 
 const Skills = () => {
-  const container = useRef(null);
   return (
-    <motion.section
-      variants={staggerContainerChildren(1.5)}
-      whileInView={`show`}
-      initial={`hidden`}
+    <section
       id="skillset"
-      className="lg:my-20 w-11/12 md:w-10/12 lg:w-4/6 xl:w-4/6 py-11 space-y-6 min-h-lvh"
-      ref={container}
+      className="relative flex flex-col justify-center w-full py-12 overflow-hidden bg-stone-950"
     >
-      <motion.h3
-        variants={fadeIn("up", "tween", 0.25, 1)}
-        whileInView={`show`}
-        initial={`hidden`}
-        className="text-2xl lg:text-4xl text-center font-base mt-16 lg:mt-24 tracking-wide text-white"
-      >
-        Skills
-      </motion.h3>
-      <h1 className="text-xl font-light tracking-wide text-white">Frontend</h1>
-      <div className="flex overflow-auto gap-6 py-4">
-        {skillset.Frontend.map((skill, index) => (
-          <div key={index}>
-            <SkillCard key={index} skill={skill} />
-          </div>
-        ))}
+      {/* Section Header */}
+      <div className="mb-8 px-6 lg:px-20">
+        <motion.h3
+          variants={fadeIn("up", "tween", 0.1, 1)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-3xl lg:text-4xl tracking-wider text-stone-900 dark:text-white"
+        >
+          Skills
+        </motion.h3>
       </div>
-      <h1 className="text-xl font-light tracking-wide text-white">Backend</h1>
-      <div className="flex overflow-auto gap-6 py-4">
-        {skillset.Backend.map((skill, index) => (
-          <div key={index}>
-            <SkillCard key={index} skill={skill} />
-          </div>
-        ))}
+
+      {/* Marquee Container with Separations */}
+      <div className="flex flex-col space-y-2">
+
+        {/* Row 1: Frontend */}
+        <div className="">
+          <h4 className="px-6 lg:px-20 text-[10px] font-mono uppercase tracking-[0.3em] text-stone-500 mb-2">
+            01. Frontend_Core
+          </h4>
+          <InfiniteMarquee speed={0.4}>
+            {skillset.Frontend.map((skill, index) => (
+              <SkillCard key={`fe-${index}`} skill={skill} />
+            ))}
+          </InfiniteMarquee>
+        </div>
+
+        {/* Row 2: Backend */}
+        <div className="">
+          <h4 className="px-6 lg:px-20 text-[10px] font-mono uppercase tracking-[0.3em] text-stone-500 mb-2">
+            02. Backend_Infrastructure
+          </h4>
+          <InfiniteMarquee speed={0.4}>
+            {skillset.Backend.map((skill, index) => (
+              <SkillCard key={`be-${index}`} skill={skill} />
+            ))}
+          </InfiniteMarquee>
+        </div>
+
+        {/* Row 3: Tools */}
+        <div className="">
+          <h4 className="px-6 lg:px-20 text-[10px] font-mono uppercase tracking-[0.3em] text-stone-500 mb-2">
+            03. Development_Tools
+          </h4>
+          <InfiniteMarquee speed={0.4}>
+            {skillset.Tools.map((skill, index) => (
+              <SkillCard key={`tool-${index}`} skill={skill} />
+            ))}
+          </InfiniteMarquee>
+        </div>
+
       </div>
-      <h1 className="text-xl font-light tracking-wide text-white">Tools</h1>
-      <div className="flex overflow-y-hidden gap-6 py-4 ">
-        {skillset.Tools.map((skill, index) => (
-          <div key={index}>
-            <SkillCard index={index} skill={skill} />
-          </div>
-        ))}
-      </div>
-    </motion.section>
+
+      {/* Edge Fading Mask (Glassmorphism overlap) */}
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-stone-950 via-stone-950/80 to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-stone-950 via-stone-950/80 to-transparent z-10 pointer-events-none" />
+    </section>
   );
 };
 

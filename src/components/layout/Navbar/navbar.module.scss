@@ -3,8 +3,10 @@
   top: 0;
   left: 0;
   z-index: -1;
-  background: rgb(79,79,229);
+  background: #4f4fe5; // Use your primary color
   pointer-events: none;
-  border-radius: 100rem;
-  height: 4.6rem;
+  border-radius: 9999px;
+  opacity: 0;
+  transform-origin: center;
+  will-change: transform, width, height;
 }

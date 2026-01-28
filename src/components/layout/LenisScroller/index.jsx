@@ -1,15 +1,16 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
+import Lenis from "lenis"; // Updated from @studio-freight/lenis
 
 function LenisScroller() {
   useEffect(() => {
+    // In the new version, 'lerp' usually works best between 0.05 and 0.1
+    // If you want it instant, 0 is fine, but 0.1 is that "sweet spot"
     const lenisScroll = new Lenis({
-      lerp: 0,
-      //wheelMultiplier: 0.8
+      lerp: 0.1,
       wheelMultiplier: 1,
-      // wheelMultiplier: 1.3,
+      smoothWheel: true,
     });
 
     function raf(time) {
@@ -24,7 +25,7 @@ function LenisScroller() {
     };
   }, []);
 
-  return <></>;
+  return null; // Using null is slightly cleaner than an empty fragment for provider-only components
 }
 
 export default LenisScroller;

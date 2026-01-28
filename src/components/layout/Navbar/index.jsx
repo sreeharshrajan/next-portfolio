@@ -1,122 +1,99 @@
 "use client";
 
-import React, { useRef, MouseEventHandler } from "react";
-import Image from "next/image";
+import React, { useRef, useMemo } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { usePathname } from "next/navigation";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import Link from "next/link";
 import pages from "@/database/config/navigation.json";
-
 import styles from "./navbar.module.scss";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+}
 
 function Navbar() {
   const pathname = usePathname();
+  const headerRef = useRef(null);
+  const bgRef = useRef(null);
 
-  gsap.registerPlugin(ScrollToPlugin);
+  const { contextSafe } = useGSAP({ scope: headerRef });
 
-  const navigationRef = useRef();
+  // 1. Hide on Scroll Down, Show on Scroll Up
+  useGSAP(() => {
+    const showAnim = gsap.from(headerRef.current, {
+      yPercent: -150,
+      paused: true,
+      duration: 0.3,
+      ease: "power2.out"
+    }).progress(1);
 
-  const { contextSafe } = useGSAP({ scope: navigationRef });
+    ScrollTrigger.create({
+      start: "top top",
+      end: 99999,
+      onUpdate: (self) => {
+        self.direction === 1 ? showAnim.reverse() : showAnim.play();
+      }
+    });
+  });
 
+  // 2. Optimized Hover Effect
   const doAnim = contextSafe((e) => {
-    let height = e.target.offsetHeight;
-    let width = e.target.offsetWidth;
-    let x = e.target.offsetLeft;
-    let y = e.target.offsetTop;
-
-    let bg = e.target.parentNode.parentNode.parentNode.querySelector(
-      `.${styles.bg}`
-    );
-
-    gsap.to(bg, {
-      duration: 0.3,
-      scale: 1.2,
-      x: x,
-      y: y,
-      width: width,
-      height: height,
-      padding: "8px 15px",
+    const { offsetLeft, offsetWidth, offsetHeight, offsetTop } = e.currentTarget;
+    gsap.to(bgRef.current, {
+      x: offsetLeft,
+      y: offsetTop,
+      width: offsetWidth,
+      height: offsetHeight,
       autoAlpha: 1,
-    });
-  });
-
-  const resetAnim = contextSafe((e) => {
-    let bg = e.target.parentNode.parentNode.parentNode.querySelector(
-      `.${styles.bg}`
-    );
-
-    gsap.to(bg, {
+      scale: 1,
       duration: 0.3,
-      scale: 0,
-      autoAlpha: 0,
+      ease: "power2.out",
     });
   });
 
-  const scrollToSection = contextSafe((e) => {
-    gsap.to(window, {
-      duration: 1,
-      scrollTo: e,
-    });
+  const resetAnim = contextSafe(() => {
+    gsap.to(bgRef.current, { autoAlpha: 0, scale: 0.7, duration: 0.3 });
   });
+
+  const scrollToSection = contextSafe((id) => {
+    gsap.to(window, { duration: 1, scrollTo: { y: id, offsetY: 100 }, ease: "power3.inOut" });
+  });
+
+  const navLinks = useMemo(() =>
+    Object.values(pages).filter(item => item.showOnNavigation && item.isActive),
+    []);
 
   return (
-    <header className="fixed z-50 inset-x-0 top-5 px-4 max-w-screen-lg mx-auto">
-      <div className="flex items-center justify-between space-y-3 rounded-xl backdrop-filter backdrop-blur-md dark:bg-white/5 bg-white px-4 pb-4 pt-0 drop-shadow-2xl transition-all duration-150 ease-in-out  dark:text-white lg:flex-row lg:space-y-0 lg:pt-2 shadow-xl">
-        <div className="flex">
+    <header ref={headerRef} className="fixed z-50 inset-x-0 top-5 px-4 max-w-screen-lg mx-auto">
+      <div className="flex items-center justify-between bg-white dark:bg-stone-900/80 backdrop-blur-md px-4 py-2 rounded-xl shadow-2xl border border-black/5 dark:border-white/5 transition-all">
+
+        <div className="flex items-center gap-2 md:gap-4">
           <Link
-            className="flex items-center w-10 h-10 p-2 mt-2 rounded-full text-white transition-all duration-150 ease-in-out hover:bg-white hover:text-black dark:bg-white dark:text-black dark:hover:bg-indigo-100 dark:hover:text-indigo-600 py-2 mr-2 md:mr-5"
             href="/"
-            onClick={() => scrollToSection("#home")}
+            onClick={(e) => { if (pathname === "/") { e.preventDefault(); scrollToSection("#home"); } }}
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-black border border-black/10 hover:bg-black hover:text-white transition-all duration-300"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className=""
-            >
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-              <polyline points="9 22 9 12 15 12 15 22"></polyline>
-            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
           </Link>
+
           {pathname === "/" && (
-            <nav
-              className="ml-auto flex mt-3 md:mt-2 flex-wrap items-center text-sm md:text-base justify-center gap-2 md:gap-4"
-              ref={navigationRef}
-            >
-              {Object.values(pages)
-                .filter((item) => item.showOnNavigation)
-                .filter((item) => item.isActive)
-                .map((item, index) => (
-                  <span key={index}>
-                    {item.link.startsWith("#") ? (
-                      <button
-                        onMouseEnter={doAnim}
-                        onMouseLeave={resetAnim}
-                        onClick={() => scrollToSection(item.link)}
-                      >
-                        {item.title}
-                      </button>
-                    ) : (
-                      <Link
-                        href={item.link}
-                        onMouseEnter={doAnim}
-                        onMouseLeave={resetAnim}
-                      >
-                        {item.title}
-                      </Link>
-                    )}
-                  </span>
-                ))}
-              <span className={styles.bg}></span>
+            <nav className="relative flex items-center gap-1">
+              <span ref={bgRef} className={styles.bg} />
+              {navLinks.map((item, index) => (
+                <button
+                  key={index}
+                  className="px-3 py-2 text-sm md:text-base font-medium transition-colors hover:text-white dark:text-white"
+                  onMouseEnter={doAnim}
+                  onMouseLeave={resetAnim}
+                  onClick={() => scrollToSection(item.link)}
+                >
+                  {item.title}
+                </button>
+              ))}
             </nav>
           )}
         </div>
@@ -173,25 +150,12 @@ function Navbar() {
           </Link>
         </div>
 
-        {/* CTA Button */}
         <Link
           href="/contact"
-          className="inline-flex items-center rounded-md bg-black  text-white transition-all ease-in-out hover:bg-white hover:text-black dark:bg-white dark:text-black dark:hover:bg-zinc-50 dark:hover:text-indigo-600 px-2 py-1 md:py-2 md:px-4 text-sm md:text-base font-semibold"
+          className="flex items-center gap-1 rounded-lg bg-black text-white dark:bg-white dark:text-black px-4 py-2 text-sm md:text-base font-bold hover:scale-105 transition-transform"
         >
-          <span className="mr-1">Let&apos;s Talk</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            className="w-5"
-          >
-            <path d="M7 17l9.2-9.2M17 17V7H7" />
-          </svg>
+          <span>Let&apos;s Talk</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M7 17l9.2-9.2M17 17V7H7" /></svg>
         </Link>
       </div>
     </header>

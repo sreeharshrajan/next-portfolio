@@ -1,4 +1,24 @@
 [
+    {
+    "title": "Conserve Creations",
+    "image": "/assets/images/projects/conserve-creations.png",
+    "description": "Conserve Creations is a sustainable and Zero Waste Events that promotes eco-friendly corporate gatherings to weddings.",
+    "url": "https://conservecreations.vercel.app/",
+    "date": "2025",
+    "type": "Single Page Application",
+    "tags": "Next.js",
+    "color": "bg-indigo-200"
+  },
+  {
+    "title" : "Pipline Edtor",
+    "image": "/assets/images/projects/pipeline-editor.png",
+    "description": "A web-based pipeline editor that allows users to create, edit, and manage data processing pipelines visually. Built using React.js and D3.js for dynamic graph rendering.The project demonstrates a React-based pipeline editor built using React Flow, featuring reusable node abstractions, custom styling, dynamic text node behavior, and frontend–backend integration. ",
+    "url": "https://vectorshift-pipeline-editor-sreeharsh.vercel.app/",
+    "date": "2026",
+    "type": "Full Stack Development",
+    "tags": "React.js & Fast API",
+    "color": "bg-amber-200"
+  },
   {
     "title": "Fitbody Scan",
     "image": "/assets/images/projects/fitbody.svg",
@@ -17,7 +37,7 @@
     "date": "2020",
     "type": "Single Page Application",
     "tags": "Hugo",
-    "color": "bg-yellow-200"
+    "color": "bg-white"
   },
   {
     "title": "todoListe",
