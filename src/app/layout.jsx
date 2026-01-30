@@ -30,7 +30,9 @@ export default function RootLayout({ children }) {
         className={`${font.className} snap-y bg-zinc-50 dark:bg-stone-950 dark:text-white overflow-x-hidden`}
       >
         <Navbar />
-        {children}
+        <div className="flex-grow">
+          {children}
+        </div>
         <Footer />
         <Analytics />
         <SpeedInsights />

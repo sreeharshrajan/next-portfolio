@@ -38,25 +38,25 @@ function Footer() {
   return (
     <footer
       ref={container}
-      className="flex flex-col items-center py-20 bg-stone-950 overflow-hidden"
+      className="flex flex-col items-center pb-10 pt-0 md:pt-15 bg-stone-950 overflow-hidden  [mask-image:linear-gradient(to_top,white_70%,transparent_100%)]"
       id="footer"
     >
-      {/* Home Icon with Smooth Hover Scale */}
       <Link
         href="/"
         aria-label="Back to home"
-        className="footer-item group flex items-center justify-center w-12 h-12 rounded-full text-white transition-all duration-500 ease-out hover:bg-white hover:text-black hover:scale-110 active:scale-95"
+        className="footer-item mt-6 group relative flex items-center justify-center w-12 h-12 rounded-full border border-stone-800 text-white transition-all duration-500 ease-out hover:bg-white hover:text-black hover:scale-110 active:scale-95 !opacity-100"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
+          width="24"
+          height="24"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="currentColor"
+          stroke="currentColor" 
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
+          className="relative z-20 pointer-events-none"
         >
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
           <polyline points="9 22 9 12 15 12 15 22" />
@@ -84,7 +84,7 @@ function Footer() {
 
         {/* Dynamic Quote with Magnetic-style reveal */}
         {config.content["verse"] && (
-          <blockquote className="footer-item mt-12 px-6 max-w-xl italic text-yellow-400/80 text-sm md:text-base leading-relaxed tracking-wide selection:bg-yellow-400 selection:text-black">
+          <blockquote className="footer-item mt-8 px-6 max-w-xl italic text-yellow-400/80 text-sm md:text-base leading-relaxed tracking-wide selection:bg-yellow-400 selection:text-black">
             &ldquo;{config.content["verse"]}&rdquo;
           </blockquote>
         )}

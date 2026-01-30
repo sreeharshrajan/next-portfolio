@@ -14,20 +14,21 @@ import Galaxy from "@/components/blocks/Hero/Galaxy";
 
 const index = () => {
   return (
-    <motion.main
-      variants={fadeIn("down", "tween", 0.15, 1)}
-      whileInView={`show`}
-      initial={`hidden`}
-      className="flex min-h-lvh flex-col items-center justify-between "
-    >
+    <div className="relative w-full overflow-hidden">
       <Galaxy />
-      <Hero />
-      <About />
-      <Projects />
-      <Skills />
-      <Experience />
-      <GetInTouch />
-    </motion.main>
+      <motion.main
+        variants={fadeIn("down", "tween", 0.15, 1)}
+        whileInView={`show`}
+        initial={`hidden`}
+        className="flex min-h-screen flex-col items-center justify-between w-full"
+      >
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Experience />
+        <GetInTouch />
+      </motion.main></div>
   );
 };
 

@@ -1,169 +1,97 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-
 import { motion } from "framer-motion";
+import { Toaster, toast } from "sonner"; // 1. Import Sonner
 import { fadeIn, staggerContainerChildren } from "@/utils/animate.helper";
 
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
 import Button from "@/components/ui/Button";
 
-function Contact() {
-  const container = useRef(null);
-
-  const baseUrl = process.env.NEXT_PUBLIC_FORMSPREE_API;
-  const [status, setStatus] = useState({
-    submitted: false,
-    submitting: false,
-    info: { error: false, msg: null },
-  });
-
-  const [inputs, setInputs] = useState({
-    email: "",
-    firstName: "",
-    lastName: "",
-    message: "",
-  });
-
-  const handleServerResponse = (ok, msg) => {
-    setStatus({
-      submitted: ok,
-      submitting: false,
-      info: { error: !ok, msg: msg },
-    });
-    if (ok) {
-      setInputs({
-        email: "",
-        firstName: "",
-        lastName: "",
-        message: "",
-      });
-    }
-  };
+export default function ContactPage() {
+  const [inputs, setInputs] = useState({ firstName: "", lastName: "", email: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleOnChange = (e) => {
-    const { id, value } = e.target;
-    setInputs((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
-    setStatus((prev) => ({
-      ...prev,
-      submitted: false,
-      submitting: false,
-      info: { error: false, msg: null },
-    }));
+    setInputs((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
-    setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
-    axios({
-      method: "POST",
-      url: baseUrl,
-      data: inputs,
-    })
-      .then((response) => {
-        handleServerResponse(true, "Thank you, your message has been sent.");
-      })
-      .catch((error) => {
-        handleServerResponse(
-          false,
-          error.response.data.error ||
-            "An error occurred while submitting the form."
-        );
-      });
+    setIsSubmitting(true);
+
+    // Create a promise for the toast to track
+    const promise = axios.post(process.env.NEXT_PUBLIC_FORMSPREE_API, inputs);
+
+    toast.promise(promise, {
+      loading: 'Sending your message...',
+      success: () => {
+        setInputs({ firstName: "", lastName: "", email: "", message: "" });
+        setIsSubmitting(false);
+        return 'Message sent successfully! I\'ll get back to you soon.';
+      },
+      error: (err) => {
+        setIsSubmitting(false);
+        return 'Something went wrong. Please try again.';
+      },
+    });
   };
+
   return (
-    <motion.main
-      variants={staggerContainerChildren}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: false, amount: 0.25 }}
-      className="min-h-lvh flex flex-col items-center justify-center text-center w-full pt-16 lg:pt-24"
-    >
-      <div className="container px-4">
-        <div className="space-y-2 lg:space-y-4 mb-16 text-center flex flex-col items-center justify-center">
-          <motion.h2
-            variants={fadeIn("up", "tween", 0.25, 1)}
-            whileInView={`show`}
-            initial={`hidden`}
-            className="font-semibold text-2xl md:text-4xl lg:text-6xl"
-          >
-            Leave a message
-          </motion.h2>
-          <motion.p
-            variants={fadeIn("up", "tween", 0.5, 1.5)}
-            whileInView={`show`}
-            initial={`hidden`}
-            className="text-gray-500 text-sm md:text-lg lg:text-xl dark:text-gray-400 "
-          >
-            Let&apos;s get to know eachother.
-          </motion.p>
-        </div>
+    <main className="relative min-h-screen w-full bg-[#030014] pt-32 pb-0 px-6 overflow-hidden  [mask-image:linear-gradient(to_bottom,white_80%,transparent_100%)]">
+      <Toaster
+        position="top-center"
+        richColors
+        theme="dark"
+        toastOptions={{
+          style: { marginTop: '80px' }
+        }}
+      />
+
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-900/20 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-900/10 blur-[120px] rounded-full" />
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
         <motion.div
-          variants={fadeIn("up", "tween", 0.8, 1)}
-          whileInView={`show`}
-          initial={`hidden`}
-          className="mx-auto max-w-2xl space-y-4"
+          variants={staggerContainerChildren}
+          initial="hidden"
+          animate="show"
+          className="flex flex-col justify-center"
         >
-          <form className="grid gap-4" onSubmit={handleOnSubmit}>
+          <motion.h1 variants={fadeIn("up", "tween", 0.1, 0.6)} className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Let&apos;s <span className="text-purple-400">talk.</span>
+          </motion.h1>
+          <motion.p variants={fadeIn("up", "tween", 0.2, 0.6)} className="text-gray-400 text-lg md:text-xl font-light leading-relaxed max-w-md">
+            Have a project in mind or just want to say hi? I&apos;m always open to new creative opportunities.
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          variants={fadeIn("left", "tween", 0.3, 0.6)}
+          initial="hidden"
+          animate="show"
+          className="bg-white/5 border border-white/10 backdrop-blur-xl p-8 rounded-3xl"
+        >
+          <form onSubmit={handleOnSubmit} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Input
-                  id="firstName"
-                  value={inputs.firstName}
-                  onChange={handleOnChange}
-                  placeholder="Enter your first name"
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <Input
-                  id="lastName"
-                  value={inputs.lastName}
-                  onChange={handleOnChange}
-                  placeholder="Enter your last name"
-                />
-              </div>
+              <Input id="firstName" placeholder="First Name" value={inputs.firstName} onChange={handleOnChange} required className="bg-white/5 border-white/10" />
+              <Input id="lastName" placeholder="Last Name" value={inputs.lastName} onChange={handleOnChange} className="bg-white/5 border-white/10" />
             </div>
-            <div className="space-y-2">
-              <Input
-                id="email"
-                type="email"
-                name="_replyto"
-                onChange={handleOnChange}
-                required
-                value={inputs.email}
-                placeholder="Enter your email"
-              />
-            </div>
-            <div className="space-y-2">
-              <Textarea
-                className="min-h-[100px]"
-                id="message"
-                name="message"
-                onChange={handleOnChange}
-                required
-                fixed
-                value={inputs.message}
-                placeholder="Enter your message"
-              />
-            </div>
-            <Button type="submit" disabled={status.submitting}>
-              {status.submitting ? "Sending..." : "Send Message"}
+            <Input id="email" type="email" placeholder="Email Address" value={inputs.email} onChange={handleOnChange} required className="bg-white/5 border-white/10" />
+            <Textarea id="message" placeholder="Your Message" value={inputs.message} onChange={handleOnChange} required className="bg-white/5 border-white/10 min-h-[150px]" />
+
+            <Button type="submit" variant="glass" disabled={isSubmitting} className="w-full">
+              {isSubmitting ? "Sending..." : "Send Message"}
             </Button>
           </form>
-          {status.info.error && (
-            <div className="error">Error: {status.info.msg}</div>
-          )}
-          {!status.info.error && status.info.msg && <p>{status.info.msg}</p>}
         </motion.div>
       </div>
-    </motion.main>
+      {/* Bottom fade out to blend with next section */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#030014] to-transparent z-20 pointer-events-none" />
+    </main>
   );
 }
-
-export default Contact;

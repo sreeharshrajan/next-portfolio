@@ -83,7 +83,7 @@ const Contact = () => {
       className="flex flex-col justify-center items-center"
       ref={container}
     >
-      <div className="container py-8 md:py-16 lg:py-32 px-4 md:px-6">
+      <div className="container pt-25 pb-0 px-4">
         <div className="grid gap-12 lg:gap-14">
           <div className="space-y-4 text-center flex flex-col items-center justify-center">
             <h2 className="font-semibold text-4xl md:text-6xl">Say hi!</h2>

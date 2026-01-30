@@ -66,3 +66,16 @@
 .project-card:hover img {
   transform: scale(1.05);
 }
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Ensure the canvas doesn't capture events it shouldn't */
+canvas {
+  display: block;
+  max-width: 100%;
+}
