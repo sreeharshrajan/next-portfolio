@@ -113,7 +113,6 @@ function Navbar() {
             href="/contact"
             className="group flex items-center gap-2 md:gap-3 bg-white text-[#302C68] px-3 py-2 md:px-6 md:py-3 rounded-xl text-sm md:text-base font-bold hover:bg-zinc-100 transition-all active:scale-95 shadow-sm shrink-0"
           >
-            {/* Show "Chat" on tiny screens, "Let's Talk" on everything else */}
             <span className="block sm:hidden">Chat</span>
             <span className="hidden sm:block">Let&apos;s Talk</span>
             <ArrowUpRight className="w-4 h-4 md:w-5 h-5 group-hover:rotate-45 transition-transform" />

@@ -106,9 +106,11 @@ const ContactForm = () => {
                             animate={{ opacity: 1, y: 0 }}
                             className="text-center text-green-400 text-sm font-light mt-4"
                         >
-                            Successfully sent! I'll get back to you shortly.
+                            {/* Wrap in curly braces to handle the apostrophe safely */}
+                            {"Successfully sent! I'll get back to you shortly."}
                         </motion.p>
                     )}
+                    
                     {status.error && (
                         <p className="text-center text-red-400 text-sm font-light mt-4">
                             {status.error}

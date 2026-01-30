@@ -3,7 +3,7 @@ import * as THREE from "three";
 
 const Galaxy = ({ className }) => {
   const mountRef = useRef(null);
-  
+
   // Interaction References
   const mouseRef = useRef({ x: 0, y: 0 });
   const scrollRef = useRef(0);
@@ -11,11 +11,13 @@ const Galaxy = ({ className }) => {
   const requestRef = useRef();
 
   useEffect(() => {
+    const currentRef = mountRef.current;
+
     if (!mountRef.current) return;
 
     // --- 1. SCENE SETUP ---
     const scene = new THREE.Scene();
-    
+
     // Add fog to fade distant particles into the background color
     scene.fog = new THREE.FogExp2(0x000000, 0.03);
 
@@ -26,7 +28,7 @@ const Galaxy = ({ className }) => {
       100
     );
     // Position camera slightly above and back to see the galaxy disc
-    camera.position.set(1, 2, 8); 
+    camera.position.set(1, 2, 8);
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
@@ -82,18 +84,18 @@ const Galaxy = ({ className }) => {
       // Color mixing based on radius
       const mixedColor = colorInside.clone();
       mixedColor.lerp(colorOutside, radius / parameters.radius);
-      
+
       colors[i3] = mixedColor.r;
       colors[i3 + 1] = mixedColor.g;
       colors[i3 + 2] = mixedColor.b;
 
       // Scale variation
       scales[i] = Math.random();
-      
+
       // Store randomness for shader animation (twinkling)
       randomnessAttr[i3] = Math.random();
-      randomnessAttr[i3+1] = Math.random();
-      randomnessAttr[i3+2] = Math.random();
+      randomnessAttr[i3 + 1] = Math.random();
+      randomnessAttr[i3 + 2] = Math.random();
     }
 
     geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
@@ -169,7 +171,7 @@ const Galaxy = ({ className }) => {
     scene.add(particles);
 
     // --- 4. EVENT LISTENERS ---
-    
+
     // Mouse Parallax
     const handleMouseMove = (event) => {
       mouseRef.current.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -189,10 +191,10 @@ const Galaxy = ({ className }) => {
 
     // --- 5. ANIMATION LOOP ---
     const clock = new THREE.Clock();
-    
+
     const animate = () => {
       const elapsedTime = clock.getElapsedTime();
-      
+
       // Update Uniforms
       material.uniforms.uTime.value = elapsedTime;
 
@@ -205,11 +207,11 @@ const Galaxy = ({ className }) => {
       // 1. Mouse Parallax (Tilt)
       const parallaxX = mouseRef.current.x * 0.5;
       const parallaxY = mouseRef.current.y * 0.5;
-      
+
       // 2. Scroll Interaction
       // Rotate the entire galaxy based on scroll
       particles.rotation.y = elapsedTime * 0.05 + (scrollRef.current * Math.PI * 2);
-      
+
       // Tilt the galaxy up/down based on scroll (Dramatic effect)
       particles.rotation.x = (scrollRef.current * Math.PI * 0.5) + (parallaxY * 0.1);
       particles.rotation.z = (scrollRef.current * Math.PI * 0.2) + (parallaxX * 0.1);
@@ -218,9 +220,9 @@ const Galaxy = ({ className }) => {
       // Base Z is 6, we zoom in to 3 as user scrolls
       camera.position.z = 6 - (scrollRef.current * 3);
       camera.position.y = 2 - (scrollRef.current * 1.5);
-      
+
       // Make camera look at center
-      camera.lookAt(new THREE.Vector3(0,0,0));
+      camera.lookAt(new THREE.Vector3(0, 0, 0));
 
       renderer.render(scene, camera);
       requestRef.current = requestAnimationFrame(animate);
@@ -241,11 +243,15 @@ const Galaxy = ({ className }) => {
 
     // --- CLEANUP ---
     return () => {
+      if (currentRef) {
+        currentRef.removeChild(renderer.domElement);
+      }
+
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(requestRef.current);
-      
+
       geometry.dispose();
       material.dispose();
       renderer.dispose();
