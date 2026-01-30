@@ -1,12 +1,11 @@
-.bg {
+.navHoverPill {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
-  background: #4f4fe5; // Use your primary color
-  pointer-events: none;
-  border-radius: 9999px;
+  z-index: 0;
+  background: #7c3aed; // Matching the purple in your screenshot
+  border-radius: 10px;
   opacity: 0;
-  transform-origin: center;
-  will-change: transform, width, height;
+  pointer-events: none;
+  will-change: transform, width;
 }
