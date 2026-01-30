@@ -47,7 +47,7 @@ const About = () => {
         <Paragraph value="From designing beautiful user interfaces to developing next-level experiences on the web." />
       </div>
       
-      <Paragraph value="A designer and developer based in Bengaluru, India. With years of experience in the industry, I specialize in creating bespoke websites, mobile apps, and web applications that are tailored to your specific needs." />
+      <Paragraph value="A designer and developer based in India. With years of experience in the industry, I specialize in creating bespoke websites, mobile apps, and web applications that are tailored to your specific needs." />
     </section>
   );
 };

@@ -11,7 +11,7 @@ const Skills = () => {
   return (
     <section
       id="skillset"
-      className="relative flex flex-col justify-center w-full py-12 overflow-hidden bg-stone-950"
+      className="relative flex flex-col justify-center w-full py-12 overflow-hidden"
     >
       {/* Section Header */}
       <div className="mb-8 px-6 lg:px-20">

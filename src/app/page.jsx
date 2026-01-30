@@ -10,6 +10,7 @@ import Skills from "@/components/blocks/Skills";
 import Projects from "@/components/blocks/Projects";
 import Experience from "@/components/blocks/Experience";
 import GetInTouch from "@/components/blocks/GetInTouch";
+import Galaxy from "@/components/blocks/Hero/Galaxy";
 
 const index = () => {
   return (
@@ -19,6 +20,7 @@ const index = () => {
       initial={`hidden`}
       className="flex min-h-lvh flex-col items-center justify-between "
     >
+      <Galaxy />
       <Hero />
       <About />
       <Projects />
