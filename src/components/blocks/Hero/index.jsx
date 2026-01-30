@@ -27,6 +27,22 @@ const Hero = () => {
       <div className="relative z-10 w-full max-w-6xl px-2">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
+           {/* RIGHT: New Tagline Text */}
+          <motion.div
+            variants={fadeIn("left", "tween", 0.5, 0.8)}
+            initial="hidden"
+            whileInView="show"
+            className="lg:col-span-4 md:hidden block"
+          >
+            <div className="lg:border-l lg:border-white/10 lg:pl-10">
+              <p className="text-2xl md:text-3xl font-light text-white leading-snug">
+                Creative Engineer <br />
+                <span className="text-purple-400/80">Building Web apps</span>
+              </p>
+              <div className="mt-6 h-1 w-12 bg-gradient-to-r from-purple-500 to-transparent" />
+            </div>
+          </motion.div>
+
           <div className="lg:col-span-8 space-y-8">
             <motion.div
               variants={fadeIn("up", "tween", 0.2, 0.8)}
@@ -86,7 +102,7 @@ const Hero = () => {
             variants={fadeIn("left", "tween", 0.5, 0.8)}
             initial="hidden"
             whileInView="show"
-            className="lg:col-span-4 lg:pt-4 sm:hidden md:block"
+            className="lg:col-span-4 lg:pt-4 hidden md:block"
           >
             <div className="lg:border-l lg:border-white/10 lg:pl-10">
               <p className="text-2xl md:text-3xl font-light text-white leading-snug">

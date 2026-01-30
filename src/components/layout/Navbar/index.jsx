@@ -70,12 +70,11 @@ function Navbar() {
   return (
     <header
       ref={headerRef}
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full md:max-w-6xl max-w-xl px-4 pointer-events-none"
+      className="fixed top-4 md:top-6 inset-x-0 mx-auto z-50 w-[95%] max-w-6xl px-0 pointer-events-none"
     >
-      <div className="pointer-events-auto flex items-center justify-between bg-zinc-950/30 backdrop-blur-xl border border-white/5 p-2 rounded-2xl shadow-xl">
-
+     <div className="pointer-events-auto flex items-center justify-between bg-zinc-950/30 backdrop-blur-xl border border-white/5 p-2 rounded-2xl shadow-xl w-full">
         {/* Left Section: Home & Navigation */}
-        <div className="flex items-center gap-10">
+        <div className="flex items-center gap-3 md:gap-10">
           <Link
             href="/"
             onClick={(e) => { if (pathname === "/") { e.preventDefault(); scrollToSection("#home"); } }}
@@ -103,7 +102,7 @@ function Navbar() {
         </div>
 
         {/* Right Section: Socials & CTA */}
-        <div className="flex items-center gap-6">
+      <div className="flex items-center gap-3 md:gap-6">
           <div className="hidden lg:flex items-center gap-1 border-r border-white/10 pr-6">
             <Link href="https://github.com/sreeharshrajan" className="p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-full transition-all"><GithubIcon className="w-5 h-5" /></Link>
             <Link href="https://linkedin.com/in/sreeharshk" className="p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-full transition-all"><LinkedInIcon className="w-5 h-5" /></Link>
@@ -112,10 +111,11 @@ function Navbar() {
 
           <Link
             href="/contact"
-            className="group flex items-center gap-3 bg-white text-[#302C68] px-6 py-3 rounded-xl text-base font-bold hover:bg-zinc-100 transition-all active:scale-95 shadow-sm"
+            className="group flex items-center gap-2 md:gap-3 bg-white text-[#302C68] px-3 py-2 md:px-6 md:py-3 rounded-xl text-sm md:text-base font-bold hover:bg-zinc-100 transition-all active:scale-95 shadow-sm"
           >
-            <span>Let&apos;s Talk</span>
-            <ArrowUpRight className="w-5 h-5 group-hover:rotate-45 transition-transform" />
+            <span className="hidden xs:block">Let&apos;s Talk</span>
+            <span className="block xs:hidden">Chat</span>
+            <ArrowUpRight className="w-4 h-4 md:w-5 h-5 group-hover:rotate-45 transition-transform" />
           </Link>
         </div>
       </div>
