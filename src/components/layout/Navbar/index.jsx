@@ -70,7 +70,7 @@ function Navbar() {
   return (
     <header
       ref={headerRef}
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl px-4 pointer-events-none"
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full md:max-w-6xl max-w-xl px-4 pointer-events-none"
     >
       <div className="pointer-events-auto flex items-center justify-between bg-zinc-950/30 backdrop-blur-xl border border-white/5 p-2 rounded-2xl shadow-xl">
 
