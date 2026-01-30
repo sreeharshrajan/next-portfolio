@@ -44,7 +44,7 @@ function Footer() {
       <Link
         href="/"
         aria-label="Back to home"
-        className="footer-item mt-6 group relative flex items-center justify-center w-12 h-12 rounded-full border border-stone-800 text-white transition-all duration-500 ease-out hover:bg-white hover:text-black hover:scale-110 active:scale-95 !opacity-100"
+        className="footer-item my-6 group relative flex items-center justify-center w-12 h-12 rounded-full border border-stone-800 text-white transition-all duration-500 ease-out hover:bg-white hover:text-black hover:scale-110 active:scale-95 !opacity-100"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
