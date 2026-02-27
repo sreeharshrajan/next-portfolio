@@ -66,7 +66,7 @@ function Footer() {
       <div className="mt-8 flex flex-col items-center text-center">
         {/* Attribution Text */}
         <div className="footer-item text-stone-400 text-sm md:text-base font-medium space-y-1">
-          <p>© {year} Sreeharsh Rajan</p>
+          <p>© 2024 - {year} Sreeharsh Rajan</p>
           <p className="opacity-70">
             Powered by
             <span className="text-stone-200"> Vercel</span>,
